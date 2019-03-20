@@ -1,4 +1,7 @@
-package com.petrolstation.models;
+package com.petrolstation.models.persons;
+
+import com.petrolstation.models.services.Reservation;
+import com.petrolstation.models.services.Supply;
 
 import java.util.List;
 

@@ -1,24 +1,31 @@
-package com.petrolstation.models;
+package com.petrolstation.models.persons;
 
-import com.petrolstation.enums.AccessRights;
+import com.petrolstation.enums.persons.AccessRights;
+import com.petrolstation.models.services.Reservation;
+import com.petrolstation.models.services.Service;
+import com.petrolstation.models.services.Supply;
 
 import java.util.*;
 
-public abstract class Person {
-    public Long id;
-    public String firstName;
-    public String lastName;
-    public String email;
-    public String password;
-    public String city;
-    public String postalcode;
-    public AccessRights accessRights;
-    public Optional<String> accountNumber;
-    public Map<Date,Integer> workingHours;
-    public List<Supply> supplyList;
-    public List<Reservation> reservationList;
-    public Map<Worker, Long> workers;
-    public Set<Service> services;
+abstract class Person {
+    Long id;
+    String firstName;
+    String lastName;
+    String email;
+    String password;
+    String city;
+    String postalcode;
+    AccessRights accessRights;
+    Optional<String> accountNumber;
+    Map<Date,Integer> workingHours;
+    List<Supply> supplyList;
+    List<Reservation> reservationList;
+    Map<Worker, Long> workers;
+    Set<Service> services;
+
+    public Long getId() {
+        return id;
+    }
 
     public String getFirstName() {
         return firstName;

@@ -1,4 +1,6 @@
-package com.petrolstation.models;
+package com.petrolstation.models.persons;
+
+import com.petrolstation.models.services.Service;
 
 import java.util.Map;
 import java.util.Set;

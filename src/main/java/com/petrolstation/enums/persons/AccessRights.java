@@ -1,4 +1,4 @@
-package com.petrolstation.enums;
+package com.petrolstation.enums.persons;
 
 public enum AccessRights {
     OWNER,

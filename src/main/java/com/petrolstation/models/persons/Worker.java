@@ -1,9 +1,8 @@
-package com.petrolstation.models;
+package com.petrolstation.models.persons;
 
 import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 
 public class Worker extends Person {
     public Optional<String> getAccountNumber() {
