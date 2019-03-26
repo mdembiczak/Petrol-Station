@@ -1,11 +1,13 @@
 package com.petrolstation.models.services;
 
-import com.petrolstation.models.persons.Worker;
+import com.petrolstation.models.people.Worker;
+import org.springframework.data.annotation.Id;
 
 import java.util.Date;
 import java.util.Set;
 
 public class Supply {
+    @Id
     private Long id;
     private Date date;
     private Worker worker;

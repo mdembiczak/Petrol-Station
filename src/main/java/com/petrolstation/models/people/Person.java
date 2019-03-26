@@ -1,14 +1,17 @@
-package com.petrolstation.models.persons;
+package com.petrolstation.models.people;
 
 import com.petrolstation.enums.persons.AccessRights;
 import com.petrolstation.models.services.Reservation;
 import com.petrolstation.models.services.Service;
 import com.petrolstation.models.services.Supply;
+import org.springframework.data.annotation.Id;
 
 import java.util.*;
 
-abstract class Person {
-    Long id;
+abstract  class Person {
+
+    @Id
+    String id;
     String firstName;
     String lastName;
     String email;
@@ -23,7 +26,7 @@ abstract class Person {
     Map<Worker, Long> workers;
     Set<Service> services;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

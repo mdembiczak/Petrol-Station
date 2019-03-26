@@ -1,8 +1,10 @@
 package com.petrolstation.models.services;
 
 import com.petrolstation.enums.services.ServiceTypes;
+import org.springframework.data.annotation.Id;
 
 public class Service {
+    @Id
     private Long id;
     private String name;
     private Double price;

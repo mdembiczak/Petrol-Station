@@ -1,4 +1,4 @@
-package com.petrolstation.models.persons;
+package com.petrolstation.models.people;
 
 import com.petrolstation.models.services.Reservation;
 import com.petrolstation.models.services.Supply;

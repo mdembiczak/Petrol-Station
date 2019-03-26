@@ -1,4 +1,4 @@
-package com.petrolstation.models.persons;
+package com.petrolstation.models.people;
 
 import java.util.Date;
 import java.util.Map;

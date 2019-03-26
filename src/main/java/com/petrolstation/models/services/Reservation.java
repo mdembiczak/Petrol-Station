@@ -1,14 +1,17 @@
 package com.petrolstation.models.services;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 public class Reservation {
-    private Long id;
+    @Id
+    private String id;
     private Supply supply;
     private Date date;
     private Boolean isDone;
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
