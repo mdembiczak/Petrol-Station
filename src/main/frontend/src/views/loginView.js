@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './loginView.css';
+import logo from '../logo.svg';
+import '../styles/loginView.css';
 
 class loginView extends Component {
     constructor(props){
