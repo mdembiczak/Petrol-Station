@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import LoginView from './views/loginView';
+import ContactView from './views/contactView';
 
 class App extends Component {
   render() {
@@ -23,11 +24,15 @@ class App extends Component {
                 <li className="nav-item">
                     <Link to={'/price-list'} className="nav-link">Cennik</Link>
                 </li>
+                <li className="nav-item">
+                    <Link to={'/contact'} className="nav-link">Kontakt</Link>
+                </li>
               </ul>
             </div>
           </nav>
           <Switch>
             <Route exact path='/login' component={LoginView} />
+            <Route exact path='/contact' component={ContactView} />
             {/*<Route path='/price-list' component={PriceListView} />*/}
           </Switch>
         </div>
