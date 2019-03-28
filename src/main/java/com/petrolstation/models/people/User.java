@@ -1,10 +1,13 @@
 package com.petrolstation.models.people;
 
+import com.petrolstation.enums.persons.AccessRights;
 import com.petrolstation.models.services.Reservation;
 import com.petrolstation.models.services.Supply;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+@Document(collection = "users")
 public class User extends Person {
     public List<Supply> getSupplyList() {
         return supplyList;
@@ -22,18 +25,8 @@ public class User extends Person {
         this.reservationList = reservationList;
     }
 
-    public User build() {
-        User user = new User();
-        user.firstName = this.firstName;
-        user.lastName = this.lastName;
-        user.email = this.email;
-        user.password = this.password;
-        user.city = this.city;
-        user.postalcode = this.postalcode;
-        user.accessRights = this.accessRights;
-        user.supplyList = this.supplyList;
-        user.reservationList = this.reservationList;
-        return user;
+    private User(){
+
     }
 
     public static final class Builder {
@@ -46,6 +39,10 @@ public class User extends Person {
         private String accessRights;
         private List<Supply> supplies;
         private List<Reservation> reservations;
+
+        public Builder(){
+
+        }
 
         public Builder firstName(String firstName) {
             this.firstName = firstName;
@@ -90,6 +87,20 @@ public class User extends Person {
         public Builder reservations(List<Reservation> reservations) {
             this.reservations = reservations;
             return this;
+        }
+
+        public User build() {
+            User user = new User();
+            user.firstName = this.firstName;
+            user.lastName = this.lastName;
+            user.email = this.email;
+            user.password = this.password;
+            user.city = this.city;
+            user.postalCode = this.postalCode;
+            user.accessRights = AccessRights.valueOf(this.accessRights);
+            user.supplyList = this.supplies;
+            user.reservationList = this.reservations;
+            return user;
         }
     }
 }

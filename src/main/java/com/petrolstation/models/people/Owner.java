@@ -1,10 +1,12 @@
 package com.petrolstation.models.people;
 
 import com.petrolstation.models.services.Service;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 import java.util.Set;
 
+@Document(collection = "workers")
 public class Owner extends Person {
 
     public Map<Worker, Long> getWorkers() {
@@ -30,7 +32,7 @@ public class Owner extends Person {
         owner.email = this.email;
         owner.password = this.password;
         owner.city = this.city;
-        owner.postalcode = this.postalcode;
+        owner.postalCode = this.postalCode;
         owner.accessRights = this.accessRights;
         owner.workers = this.workers;
         owner.services = this.services;

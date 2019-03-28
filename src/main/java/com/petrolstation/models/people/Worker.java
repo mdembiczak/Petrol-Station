@@ -1,9 +1,13 @@
 package com.petrolstation.models.people;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Date;
 import java.util.Map;
 import java.util.Optional;
 
+
+@Document(collection = "workers")
 public class Worker extends Person {
     public Optional<String> getAccountNumber() {
         return accountNumber;
@@ -28,7 +32,7 @@ public class Worker extends Person {
         worker.email = this.email;
         worker.password = this.password;
         worker.city = this.city;
-        worker.postalcode = this.postalcode;
+        worker.postalCode = this.postalCode;
         worker.accessRights = this.accessRights;
         worker.accountNumber = this.accountNumber;
         worker.workingHours = this.workingHours;

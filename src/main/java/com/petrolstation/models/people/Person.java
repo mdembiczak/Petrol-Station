@@ -17,7 +17,7 @@ abstract  class Person {
     String email;
     String password;
     String city;
-    String postalcode;
+    String postalCode;
     AccessRights accessRights;
     Optional<String> accountNumber;
     Map<Date,Integer> workingHours;
@@ -70,12 +70,12 @@ abstract  class Person {
         this.city = city;
     }
 
-    public String getPostalcode() {
-        return postalcode;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostalcode(String postalcode) {
-        this.postalcode = postalcode;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public AccessRights getAccessRights() {
