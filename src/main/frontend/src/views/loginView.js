@@ -13,7 +13,7 @@ class loginView extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.login.value + ", " + this.password.value);
+        alert('A name was submitted: ' + this.state.login + ", " + this.state.password);
         event.preventDefault();
     }
     handleChange(event) {
