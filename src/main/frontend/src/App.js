@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import LoginView from './views/loginView';
 import ContactView from './views/contactView';
 import PriceListView from './views/priceView';
-{/*import RegisterView from'./views/registerView'; */}
+import RegisterView from'./views/registerView';
 
 class App extends Component {
   render() {
@@ -39,7 +39,7 @@ class App extends Component {
             <Route exact path='/login' component={LoginView} />
             <Route exact path='/contact' component={ContactView} />
             <Route path='/price-list' component={PriceListView} />
-            {/*<Route path='/register' component={RegisterView} />  */ }
+            <Route path='/register'  component={RegisterView} />
           </Switch>
         </div>
       </Router>
