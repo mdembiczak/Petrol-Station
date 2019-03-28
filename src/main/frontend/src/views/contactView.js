@@ -5,7 +5,7 @@ import '../styles/contactView.css';
 class App extends Component {
   render() {
     return (
-    <div className="">
+    <div className="content">
         <p>
             Skontaktuj się z nami. <br />
             Napisz na: <br />

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import LoginView from './views/loginView';
 import ContactView from './views/contactView';
+import PriceListView from './views/priceView';
 
 class App extends Component {
   render() {
@@ -33,7 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path='/login' component={LoginView} />
             <Route exact path='/contact' component={ContactView} />
-            {/*<Route path='/price-list' component={PriceListView} />*/}
+            <Route path='/price-list' component={PriceListView} />
           </Switch>
         </div>
       </Router>
