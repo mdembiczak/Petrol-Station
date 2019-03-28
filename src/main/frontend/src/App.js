@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import LoginView from './views/loginView';
 import ContactView from './views/contactView';
 import PriceListView from './views/priceView';
+{/*import RegisterView from'./views/registerView'; */}
 
 class App extends Component {
   render() {
@@ -23,6 +24,9 @@ class App extends Component {
                     <Link to={'/login'} className="nav-link">Logowanie</Link>
                 </li>
                 <li className="nav-item">
+                    <Link to={'/register'} className="nav-link">Rejestracja</Link>
+                </li>
+                <li className="nav-item">
                     <Link to={'/price-list'} className="nav-link">Cennik</Link>
                 </li>
                 <li className="nav-item">
@@ -35,6 +39,7 @@ class App extends Component {
             <Route exact path='/login' component={LoginView} />
             <Route exact path='/contact' component={ContactView} />
             <Route path='/price-list' component={PriceListView} />
+            {/*<Route path='/register' component={RegisterView} />  */ }
           </Switch>
         </div>
       </Router>
