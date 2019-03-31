@@ -1,7 +1,9 @@
 .registerView-header{
     padding: 5%;
 }
-
+.registerView{
+    padding-left:30%;
+}
 .leftSide{
     float: left;
     padding: 1%;

@@ -7,6 +7,8 @@ import LoginView from './views/loginView';
 import ContactView from './views/contactView';
 import PriceListView from './views/priceView';
 import RegisterView from'./views/registerView';
+import LoyalityView from './views/loyalityView';
+import MainView from './views/main.js';
 
 class App extends Component {
   render() {
@@ -30,6 +32,9 @@ class App extends Component {
                     <Link to={'/price-list'} className="nav-link">Cennik</Link>
                 </li>
                 <li className="nav-item">
+                    <Link to={'/loyality'} className="nav-link">Program lojalnościowy</Link>
+                </li>
+                <li className="nav-item">
                     <Link to={'/contact'} className="nav-link">Kontakt</Link>
                 </li>
               </ul>
@@ -40,6 +45,8 @@ class App extends Component {
             <Route exact path='/contact' component={ContactView} />
             <Route path='/price-list' component={PriceListView} />
             <Route path='/register'  component={RegisterView} />
+            <Route path='/loyality' component={LoyalityView} />
+            <Route path='/' component={MainView} />
           </Switch>
         </div>
         <div className="footer">
