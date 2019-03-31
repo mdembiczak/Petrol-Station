@@ -12,7 +12,7 @@ class priceView extends Component {
 
 
   componentDidMount() {
-    fetch('http://localhost:8080/prices')
+    fetch('http://localhost:8080/prices?callback=foo')
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -26,6 +26,7 @@ class priceView extends Component {
     return (
       <div>
         <h3>Prices</h3>
+
       </div>
     );
   }
