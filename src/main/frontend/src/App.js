@@ -42,6 +42,11 @@ class App extends Component {
             <Route path='/register'  component={RegisterView} />
           </Switch>
         </div>
+        <div className="footer">
+
+            Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
+
+        </div>
       </Router>
     );
   }
