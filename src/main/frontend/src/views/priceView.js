@@ -28,7 +28,7 @@ class priceView extends Component {
         <h3>Cennik</h3>
             <table>
             <tr><td className="priceView_c11">Usługa</td><td className="priceView_c12">Cena</td></tr>
-           {this.state.prices.map(function(item, key) {
+           {prices.map(function(item, key) {
 
                return (
 
