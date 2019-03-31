@@ -24,18 +24,22 @@ class priceView extends Component {
   render() {
     const { prices } = this.state;
     return (
-      <div>
-        <h3>Prices</h3>
+      <div className="priceView">
+        <h3>Cennik</h3>
+            <table>
+            <tr><td className="priceView_c11">Usługa</td><td className="priceView_c12">Cena</td></tr>
            {this.state.prices.map(function(item, key) {
 
-           return (
-              <tr key = {key}>
-                  <td>{item.fuelType}</td>
-                  <td>{item.price}</td>
-              </tr>
-            )
+               return (
 
-         })}
+                  <tr key = {key}>
+                      <td>{item.fuelType}</td><td>{item.price}</td>
+                  </tr>
+
+                )
+
+            })}
+            </table>
       </div>
     );
   }
