@@ -26,7 +26,16 @@ class priceView extends Component {
     return (
       <div>
         <h3>Prices</h3>
+           {this.state.prices.map(function(item, key) {
 
+           return (
+              <tr key = {key}>
+                  <td>{item.fuelType}</td>
+                  <td>{item.price}</td>
+              </tr>
+            )
+
+         })}
       </div>
     );
   }
