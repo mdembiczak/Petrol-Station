@@ -2,11 +2,13 @@ package com.petrolstation.controllers.persons;
 
 import com.petrolstation.enums.persons.AccessRights;
 import com.petrolstation.models.people.User;
+import com.petrolstation.models.services.PriceList;
 import com.petrolstation.repositories.people.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @RestController
@@ -24,6 +26,12 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/{email}/{password}")
     public Boolean getValidation(@PathVariable String email, @PathVariable String password){
         return userRepository.findByEmailAndPassword(email, password) != null;
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET)
+    public List<User> showUsers(){
+        return userRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
