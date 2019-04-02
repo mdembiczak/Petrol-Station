@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../../styles/logged/userView.css";
+import "../../styles/logged/userDetailsView.css";
 
-class userView extends Component {
+class UserDetailsView extends Component {
   constructor() {
     super();
     this.state = {
@@ -46,4 +46,4 @@ class userView extends Component {
   }
 }
 
-export default userView;
+export default UserDetailsView;

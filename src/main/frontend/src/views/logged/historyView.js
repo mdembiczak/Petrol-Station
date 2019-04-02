@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../styles/logged/historyView.css";
 
-class historyView extends Component {
+class HistoryView extends Component {
   constructor() {
     super();
     this.state = {
@@ -45,4 +45,4 @@ class historyView extends Component {
   }
 }
 
-export default historyView;
+export default HistoryView;
