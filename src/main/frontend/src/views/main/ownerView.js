@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
@@ -15,68 +9,66 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
-import GuestView from "./guestView";
-import RefreshRoute from "../../utils/refreshRouter";
 
-class WorkerView extends Component {
-  handleLogout = () => window.location.assign("http://localhost:3000/");
-
+class OwnerView extends Component {
   render() {
     return (
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={"/user/main-page"} className="navbar-brand">
+            <Link to={"/user"} className="navbar-brand">
               Stacja Benzynowa
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link to={"/user/main-page"} className="nav-link">
+                  <Link to={"/user"} className="nav-link">
                     Home
                   </Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link to={"/user/price-list"} className="nav-link">
+                  <Link to={"/price-list"} className="nav-link">
                     Cennik
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={"/user/loyality"} className="nav-link">
+                  <Link to={"/loyality"} className="nav-link">
                     Program lojalnościowy
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={"/user/contact"} className="nav-link">
+                  <Link to={"/contact"} className="nav-link">
                     Kontakt
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/user-details"} className="nav-link">
+                  <Link to={"/user-details"} className="nav-link">
                     Szczegóły konta
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/service-history"} className="nav-link">
+                  <Link to={"service-history"} className="nav-link">
                     Historia tankowania
                   </Link>
                 </li>
-                <li>
-                  <button className="nav-link" onClick={this.handleLogout}>
-                    Logout
-                  </button>
+                <li className="nav-item">
+                  <Link to={"/"} className="nav-link">
+                    Wyloguj
+                  </Link>
                 </li>
               </ul>
             </div>
           </nav>
           <Switch>
-            <Route path="/user/main-page" component={MainView} />
-            <Route path="/user/price-list" component={PriceListView} />
-            <Route path="/user/loyality" component={LoyalityView} />
-            <Route path="/user/contact" component={ContactView} />
-            <Route path="/user/user-details" component={UserDetailsView} />
-            <Route path="/user/service-history" component={HistoryView} />
+            <Route path="/" component={MainView}/>
+            <Route path="/price-list" component={PriceListView} />
+            <Route path="/loyality" component={LoyalityView} />
+            <Route path="/contact" component={ContactView} />
+            <Route path="/user-details" component={UserDetailsView} />
+            <Route path="/service-history" component={HistoryView} />
+            <Route path="/user" component={HistoryView} />
+
           </Switch>
         </div>
       </Router>
@@ -84,4 +76,4 @@ class WorkerView extends Component {
   }
 }
 
-export default WorkerView;
+export default OwnerView;

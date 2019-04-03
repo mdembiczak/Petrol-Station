@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import PriceListView from './views/priceView';
-import RegisterView from'./views/registerView';
 import GuestView from './views/main/guestView';
 import UserView from './views/main/userView';
+import OwnerView from './views/main/ownerView';
+import WorkerView from './views/main/workerView';
+
 
 class App extends Component {
   render() {
@@ -14,9 +15,9 @@ class App extends Component {
       <Router>
           <Switch>
             <Route exact path='/' component={GuestView} />
-            <Route path='/user' component={UserView} />
-            <Route path='/worker' component={PriceListView} />
-            <Route path='/owner'  component={RegisterView} />
+            <Route exact path='/user' component={UserView} />
+            <Route exact path='/worker' component={WorkerView} />
+            <Route exact path='/owner'  component={OwnerView} />
           </Switch>
         <div className="footer">
 

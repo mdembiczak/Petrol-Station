@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
@@ -15,12 +9,8 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
-import GuestView from "./guestView";
-import RefreshRoute from "../../utils/refreshRouter";
 
 class WorkerView extends Component {
-  handleLogout = () => window.location.assign("http://localhost:3000/");
-
   render() {
     return (
       <Router>
@@ -62,16 +52,11 @@ class WorkerView extends Component {
                     Historia tankowania
                   </Link>
                 </li>
-                <li>
-                  <button className="nav-link" onClick={this.handleLogout}>
-                    Logout
-                  </button>
-                </li>
               </ul>
             </div>
           </nav>
           <Switch>
-            <Route path="/user/main-page" component={MainView} />
+            <Route path="/user/main-page" component={MainView}/>
             <Route path="/user/price-list" component={PriceListView} />
             <Route path="/user/loyality" component={LoyalityView} />
             <Route path="/user/contact" component={ContactView} />
