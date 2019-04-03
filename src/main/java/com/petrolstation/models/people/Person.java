@@ -85,7 +85,4 @@ abstract  class Person {
     public void setAccessRights(AccessRights accessRights) {
         this.accessRights = accessRights;
     }
-
-
-
 }

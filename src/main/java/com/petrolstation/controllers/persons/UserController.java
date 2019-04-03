@@ -5,6 +5,7 @@ import com.petrolstation.models.people.User;
 import com.petrolstation.models.services.PriceList;
 import com.petrolstation.repositories.people.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
     public User addUser(@RequestBody User user) {
         User newUser = new User.Builder()

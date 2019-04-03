@@ -10,6 +10,7 @@ public class PriceList {
     Double price;
 
     public PriceList() {
+
     }
 
     public String getFuelType() {
