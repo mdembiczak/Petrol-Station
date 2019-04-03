@@ -6,7 +6,6 @@ import {
   Switch,
   Route,
   Link,
-  Redirect
 } from "react-router-dom";
 
 import ContactView from "../contactView";
@@ -15,8 +14,6 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
-import GuestView from "./guestView";
-import RefreshRoute from "../../utils/refreshRouter";
 
 class WorkerView extends Component {
   handleLogout = () => window.location.assign("http://localhost:3000/");
