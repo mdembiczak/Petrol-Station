@@ -3,7 +3,7 @@ import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import ContactView from "../contactView";
+import ContactView from "../worker/raportsView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
