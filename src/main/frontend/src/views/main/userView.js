@@ -14,6 +14,7 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
+import SensorsView from "../logged/sensorsView.js";
 
 class WorkerView extends Component {
   handleLogout = () => window.location.assign("http://localhost:3000/");
@@ -59,6 +60,9 @@ class WorkerView extends Component {
                     Historia tankowania
                   </Link>
                 </li>
+                  <Link to={"/user/sensors"} className="nav-link">
+                    Dane z czujników
+                  </Link>
                 <li>
                   <button className="nav-link" onClick={this.handleLogout}>
                     Logout
@@ -74,6 +78,7 @@ class WorkerView extends Component {
             <Route path="/user/contact" component={ContactView} />
             <Route path="/user/user-details" component={UserDetailsView} />
             <Route path="/user/service-history" component={HistoryView} />
+            <Route path="/user/sensors" component={SensorsView} />
           </Switch>
         </div>
       </Router>

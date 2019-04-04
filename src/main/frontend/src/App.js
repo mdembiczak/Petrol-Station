@@ -19,11 +19,11 @@ class App extends Component {
             <Route exact path='/worker' component={WorkerView} />
             <Route exact path='/owner'  component={OwnerView} />
           </Switch>
-        <div className="footer">
-
-            Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
-
-        </div>
+        <footer class="page-footer font-small blue fixed-bottom">
+            <div class="footer-copyright text-center py-3">
+                Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
+            </div>
+        </footer>
       </Router>
     );
   }

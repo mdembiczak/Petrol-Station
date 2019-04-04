@@ -44,11 +44,7 @@ class registerView extends Component {
         }).then(obj => console.log(obj))
         .then(response => console.log('Success:', JSON.stringify(response)))
         .catch(error => console.error('Error:', error));
-
-
     }
-
-
 
     handleChange(event) {
        this.setState({[event.target.name] : event.target.value});
