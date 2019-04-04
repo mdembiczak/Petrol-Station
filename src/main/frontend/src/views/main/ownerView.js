@@ -10,6 +10,7 @@ import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
 
+
 class OwnerView extends Component {
   render() {
     return (
@@ -47,6 +48,7 @@ class OwnerView extends Component {
                     Szczegóły konta
                   </Link>
                 </li>
+
                 <li>
                   <Link to={"service-history"} className="nav-link">
                     Historia tankowania
