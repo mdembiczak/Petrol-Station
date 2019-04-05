@@ -1,6 +1,5 @@
 package com.petrolstation.controllers.services;
 
-import com.petrolstation.models.services.PriceList;
 import com.petrolstation.models.services.Supply;
 import com.petrolstation.repositories.services.SupplyRepository;
 import org.springframework.web.bind.annotation.*;
