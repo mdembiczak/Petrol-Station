@@ -1,5 +1,6 @@
 package com.petrolstation.models.people;
 
+import com.petrolstation.enums.persons.AccessRights;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
@@ -25,19 +26,6 @@ public class Worker extends Person {
         this.workingHours = workingHours;
     }
 
-    public Worker build() {
-        Worker worker = new Worker();
-        worker.firstName = this.firstName;
-        worker.lastName = this.lastName;
-        worker.email = this.email;
-        worker.password = this.password;
-        worker.city = this.city;
-        worker.postalCode = this.postalCode;
-        worker.accessRights = this.accessRights;
-        worker.accountNumber = this.accountNumber;
-        worker.workingHours = this.workingHours;
-        return worker;
-    }
 
     public static final class Builder {
         private String firstName;
@@ -46,7 +34,7 @@ public class Worker extends Person {
         private String password;
         private String city;
         private String postalCode;
-        private String accessRights;
+        private AccessRights accessRights;
         private Optional<String> accountNumber;
         private Map<Date,Integer> workingHours;
 
@@ -80,7 +68,7 @@ public class Worker extends Person {
             return this;
         }
 
-        public Builder accessRight(String accessRights){
+        public Builder accessRight(AccessRights accessRights){
             this.accessRights = accessRights;
             return this;
         }
@@ -94,6 +82,21 @@ public class Worker extends Person {
             this.workingHours = workingHours;
             return this;
         }
+
+        public Worker build() {
+            Worker worker = new Worker();
+            worker.firstName = this.firstName;
+            worker.lastName = this.lastName;
+            worker.email = this.email;
+            worker.password = this.password;
+            worker.city = this.city;
+            worker.postalCode = this.postalCode;
+            worker.accessRights = this.accessRights;
+            worker.accountNumber = this.accountNumber;
+            worker.workingHours = this.workingHours;
+            return worker;
+        }
+
     }
 
 }

@@ -26,7 +26,9 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{email}/{password}")
     public Boolean getValidation(@PathVariable String email, @PathVariable String password){
-        return userRepository.findByEmailAndPassword(email, password) != null;
+        if(userRepository.findByEmailAndPassword(email, password) != null)
+            return true;
+        return false;
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
@@ -51,5 +53,28 @@ public class UserController {
                 .build();
         userRepository.save(newUser);
         return newUser;
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/{email}")
+    public User editUser(@RequestBody User user, @PathVariable String email){
+        User editedUser = userRepository.findByEmail(email);
+        if(user.getFirstName()!= null){
+            editedUser.setFirstName(user.getFirstName());
+        }
+        if(user.getLastName() != null){
+            editedUser.setLastName(user.getLastName());
+        }
+        if(user.getCity() != null) {
+            editedUser.setCity(user.getCity());
+        }
+        if(user.getPostalCode() != null){
+            editedUser.setPostalCode(user.getPostalCode());
+        }
+        if(user.getPassword() != null) {
+            editedUser.setPassword(user.getPassword());
+        }
+
+        userRepository.save(editedUser);
+        return editedUser;
     }
 }

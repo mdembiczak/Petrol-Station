@@ -1,5 +1,6 @@
 package com.petrolstation.models.services;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.petrolstation.models.people.Worker;
 import org.springframework.data.annotation.Id;
 
@@ -12,7 +13,8 @@ public class Supply {
     private Date date;
     private Worker worker;
     private Set<Service> services;
-    private Boolean isPaid;
+    @JsonProperty("isPaid")
+    private boolean isPaid;
 
     public Long getId() {
         return id;
@@ -42,28 +44,21 @@ public class Supply {
         this.services = services;
     }
 
-    public Boolean getPaid() {
+    public boolean getPaid() {
         return isPaid;
     }
 
-    public void setPaid(Boolean paid) {
+    public void setPaid(boolean paid) {
         isPaid = paid;
     }
 
-    public Supply build(){
-        Supply supply = new Supply();
-        supply.date = this.date;
-        supply.worker = this.worker;
-        supply.services = this.services;
-        supply.isPaid = this.isPaid;
-        return supply;
-    }
+
 
     public static final class Builder{
         private Date date;
         private Worker worker;
         private Set<Service> services;
-        private Boolean isPaid;
+        private boolean isPaid;
 
         public Builder date(Date date){
             this.date = date;
@@ -80,9 +75,18 @@ public class Supply {
             return this;
         }
 
-        public Builder isPaid(Boolean isPaid){
+        public Builder isPaid(boolean isPaid){
             this.isPaid = isPaid;
             return this;
+        }
+
+        public Supply build(){
+            Supply supply = new Supply();
+            supply.date = this.date;
+            supply.worker = this.worker;
+            supply.services = this.services;
+            supply.isPaid = this.isPaid;
+            return supply;
         }
     }
 }

@@ -42,18 +42,10 @@ public class Service {
         this.serviceType = serviceType;
     }
 
-    public Service build(){
-        Service service = new Service();
-        service.name = this.name;
-        service.price = this.price;
-        service.serviceType = this.serviceType;
-        return service;
-    }
-
     public static final class Builder{
         private String name;
         private Double price;
-        private ServiceTypes serviceTypes;
+        private ServiceTypes serviceType;
 
         public Builder name(String name){
             this.name = name;
@@ -66,8 +58,16 @@ public class Service {
         }
 
         public Builder serviceType(ServiceTypes serviceType){
-            this.serviceTypes = serviceType;
+            this.serviceType = serviceType;
             return this;
+        }
+
+        public Service build(){
+            Service service = new Service();
+            service.name = this.name;
+            service.price = this.price;
+            service.serviceType = this.serviceType;
+            return service;
         }
     }
 }
