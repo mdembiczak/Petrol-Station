@@ -3,11 +3,12 @@ import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import ContactView from "../worker/raportsView";
+import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
+import RaportsView from "../worker/raportsView.js";
 import MainView from "../main.js";
 
 class WorkerView extends Component {
@@ -52,6 +53,11 @@ class WorkerView extends Component {
                     Historia tankowania
                   </Link>
                 </li>
+                <li>
+                  <Link to={"/worker/raportsView"} className="nav-link">
+                    Raporty
+                  </Link>
+                </li>
               </ul>
             </div>
           </nav>
@@ -62,6 +68,7 @@ class WorkerView extends Component {
             <Route path="/user/contact" component={ContactView} />
             <Route path="/user/user-details" component={UserDetailsView} />
             <Route path="/user/service-history" component={HistoryView} />
+            <Route path="/worker/raportsView" component={RaportsView} />
           </Switch>
         </div>
       </Router>
