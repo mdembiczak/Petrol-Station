@@ -26,16 +26,21 @@ class UserDetailsView extends Component {
     return (
       <div className="userView">
         <h3>Dane użytkownika</h3>
+
+
+
            {prices.map(function(item, key) {
 
                return (
-                  <table key = {key}>
+                  <table key = {key} className="table">
 
-                      <tr><td>Imię: &nbsp;&nbsp;</td><td>{item.firstName}</td></tr>
-                      <tr><td>Nazwisko: &nbsp;&nbsp;</td><td>{item.lastName}</td></tr>
-                      <tr><td>Miasto: &nbsp;&nbsp;</td><td>{item.city}</td></tr>
-                      <tr><td>Kod pocztowy: &nbsp;&nbsp;</td><td>{item.postalCode}</td></tr>
-                      <tr><td>Adres e-mail: &nbsp;&nbsp;</td><td>{item.email}</td></tr>
+                      <thead className="thead-dark"><tr><th scope="col">Imię: &nbsp;&nbsp;</th><th scope="col">{item.firstName}</th></tr></thead>
+                      <tbody>
+                      <tr><th scope="row">Nazwisko: &nbsp;&nbsp;</th><td>{item.lastName}</td></tr>
+                      <tr><th scope="row">Miasto: &nbsp;&nbsp;</th><td>{item.city}</td></tr>
+                      <tr><th scope="row">Kod pocztowy: &nbsp;&nbsp;</th><td>{item.postalCode}</td></tr>
+                      <tr><th scope="row">Adres e-mail: &nbsp;&nbsp;</th><td>{item.email}</td></tr>
+                      </tbody>
                   </table>
 
                 )

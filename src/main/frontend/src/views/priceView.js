@@ -24,22 +24,31 @@ class priceView extends Component {
   render() {
     const { prices } = this.state;
     return (
-      <div className="priceView">
+      <div>
         <h3>Cennik</h3>
-            <table>
-            <tr><td className="priceView_c11">Usługa</td><td className="priceView_c12">Cena</td></tr>
+            <table className="table">
+              <thead className="thead-dark">
+                <tr>
+                  <th scope="col">Usługa</th>
+                  <th scope="col">Cena</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
            {prices.map(function(item, key) {
 
                return (
 
-                  <tr key = {key}>
-                      <td>{item.fuelType}</td><td>{item.price}</td>
-                  </tr>
-
+                    <tr key={key}>
+                      <th scope="row">{item.fuelType}</th>
+                      <td>{item.price}</td>
+                    </tr>
                 )
 
             })}
-            </table>
+            </tbody>
+       </table>
       </div>
     );
   }
