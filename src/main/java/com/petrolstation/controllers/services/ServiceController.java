@@ -24,6 +24,11 @@ public class ServiceController {
 
     @RequestMapping(method = RequestMethod.POST)
     public void addPrice(@RequestBody Service service){
+        Service newService = new Service.Builder()
+                .name(service.getName())
+                .price(service.getPrice())
+                .serviceType(service.getServiceType())
+                .build();
         serviceRepository.save(service);
     }
 }

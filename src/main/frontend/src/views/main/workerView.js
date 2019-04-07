@@ -10,6 +10,7 @@ import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import RaportsView from "../worker/raportsView.js";
 import MainView from "../main.js";
+import SensorsView from "../worker/sensorsView.js";
 
 class WorkerView extends Component {
   render() {
@@ -58,6 +59,11 @@ class WorkerView extends Component {
                     Raporty
                   </Link>
                 </li>
+                <li>
+                  <Link to={"/worker/sensors"} className="nav-link">
+                    Dane z czujników
+                  </Link>
+                 </li>
               </ul>
             </div>
           </nav>
@@ -69,6 +75,7 @@ class WorkerView extends Component {
             <Route path="/user/user-details" component={UserDetailsView} />
             <Route path="/user/service-history" component={HistoryView} />
             <Route path="/worker/raportsView" component={RaportsView} />
+            <Route path="/worker/sensors" component={SensorsView} />
           </Switch>
         </div>
       </Router>

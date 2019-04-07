@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../../styles/logged/sensorsView.css";
+import "../../styles/worker/sensorsView.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SensorsView extends Component {

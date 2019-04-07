@@ -1,6 +1,6 @@
 package com.petrolstation.enums.services;
 
 public enum ServiceTypes {
-    REFUELING,
+    EFUELINGR,
     CAR_WASH
 }
