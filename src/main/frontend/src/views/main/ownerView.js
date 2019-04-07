@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { NavDropdown } from "react-bootstrap";
 
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
@@ -10,72 +11,88 @@ import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
 
-
 class OwnerView extends Component {
   render() {
     return (
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={"/user"} className="navbar-brand">
+            <Link to={"/owner/main-page"} className="navbar-brand">
               Stacja Benzynowa
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
-                    Home
-                  </Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link to={"/price-list"} className="nav-link">
+                  <Link to={"/owner/price-list"} className="nav-link">
                     Cennik
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={"/loyality"} className="nav-link">
+                  <Link to={"/owner/loyality"} className="nav-link">
                     Program lojalnościowy
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to={"/contact"} className="nav-link">
+                  <Link to={"/owner/contact"} className="nav-link">
                     Kontakt
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user-details"} className="nav-link">
+                  <Link to={"/owner/user-details"} className="nav-link">
                     Szczegóły konta
                   </Link>
                 </li>
-
                 <li>
-                  <Link to={"service-history"} className="nav-link">
-                    Historia tankowania
-                  </Link>
+                  <NavDropdown title="Administracja" id="basic-nav-dropdown">
+                    <NavDropdown.Item>
+                      <Link to={"/owner/sensors"} className="nav-link">
+                        Czujniki
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Link to={"/owner/alarms"} className="nav-link">
+                        Alarmy
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Link to={"/owner/cameras"} className="nav-link">
+                        Kamery
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.2">
+                      <Link to={"/owner/recipe"} className="nav-link">
+                        Paragon
+                      </Link>
+                    </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      <Link to={"/owner/invoice"} className="nav-link">
+                        Faktury
+                      </Link>
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </li>
-                <li className="nav-item">
-                  <Link to={"/"} className="nav-link">
-                    Wyloguj
-                  </Link>
+                <li>
+                  <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.handleLogout}>
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>
           </nav>
           <Switch>
-            <Route path="/" component={MainView}/>
-            <Route path="/price-list" component={PriceListView} />
-            <Route path="/loyality" component={LoyalityView} />
-            <Route path="/contact" component={ContactView} />
-            <Route path="/user-details" component={UserDetailsView} />
-            <Route path="/service-history" component={HistoryView} />
-            <Route path="/user" component={HistoryView} />
-
+            <Route path="/owner/main-page" component={MainView} />
+            <Route path="/owner/price-list" component={PriceListView} />
+            <Route path="/owner/loyality" component={LoyalityView} />
+            <Route path="/owner/contact" component={ContactView} />
+            <Route path="/owner/user-details" component={UserDetailsView} />
           </Switch>
         </div>
       </Router>
     );
   }
+
+  handleLogout = () => window.location.assign("http://localhost:3000/");
+
 }
 
 export default OwnerView;

@@ -62,12 +62,12 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/reservationView"} className="nav-link">
+                  <Link to={"/user/reservation-view"} className="nav-link">
                     Rezerwacja
                   </Link>
                 </li>
                 <li>
-                  <button className="nav-link" onClick={this.handleLogout}>
+                  <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.handleLogout}>
                     Logout
                   </button>
                 </li>
@@ -79,9 +79,10 @@ class WorkerView extends Component {
             <Route path="/user/price-list" component={PriceListView} />
             <Route path="/user/loyality" component={LoyalityView} />
             <Route path="/user/contact" component={ContactView} />
-            <Route path="/user/user-details" component={UserDetailsView} />
+            <Route path="/user/user-details" component={UserDetailsView} />   
             <Route path="/user/service-history" component={HistoryView} />
-            <Route path="/user/reservationView" component={ReservationView} />
+            <Route path="/user/reservation-view" component={ReservationView} />
+            {/* <Route path="/user/invoices" component={InvoicesView} /> */}
           </Switch>
         </div>
       </Router>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "../../styles/worker/raportsView.css";
+import "../../styles/worker/reportsView.css";
 
-class raportsView extends Component {
+class ReportsView extends Component {
   constructor() {
     super();
   }
@@ -59,4 +59,4 @@ class raportsView extends Component {
   }
 }
 
-export default raportsView;
+export default ReportsView;
