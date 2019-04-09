@@ -14,6 +14,7 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import ReservationView from "../logged/reservationView.js";
+import RefundLoyalityPointsView from "../logged/refundLoyalityPointsView";
 import MainView from "../main.js";
 
 
@@ -62,8 +63,13 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/reservation-view"} className="nav-link">
-                    Rezerwacja
+                <Link to={"/user/reservation-view"} className="nav-link">
+                  Rezerwacja
+                </Link>
+              </li>
+                <li>
+                  <Link to={"/user/refundLoyalityPointsView"} className="nav-link">
+                    Wymiana punktów lojalnościowych
                   </Link>
                 </li>
                 <li>
@@ -82,6 +88,7 @@ class WorkerView extends Component {
             <Route path="/user/user-details" component={UserDetailsView} />   
             <Route path="/user/service-history" component={HistoryView} />
             <Route path="/user/reservation-view" component={ReservationView} />
+            <Route path="/user/refundLoyalityPointsView" component={RefundLoyalityPointsView} />
             {/* <Route path="/user/invoices" component={InvoicesView} /> */}
           </Switch>
         </div>
