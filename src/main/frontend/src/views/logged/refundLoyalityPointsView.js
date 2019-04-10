@@ -26,6 +26,25 @@ class refundLoyalityPointsView extends Component {
         return (
             <div>
                 <h2>Wymiana punktów lojalnościowych</h2>
+                <table className="table">
+                    <thead className="thead-dark">
+                    <tr>
+                        <th scope="col">Nazwa</th>
+                        <th scope="col">Ilość potrzebnych punktów</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">Pralka</th><td>1000pkt</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Zmywarka</th><td>2000pkt</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Myszka komputerowa</th><td>300pkt</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
     );
     }
