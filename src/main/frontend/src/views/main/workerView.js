@@ -8,7 +8,6 @@ import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
-import HistoryView from "../logged/historyView.js";
 import ReportsView from "../worker/reportsView.js";
 import MainView from "../main.js";
 import SensorsView from "../worker/sensorsView.js";
@@ -85,12 +84,12 @@ class WorkerView extends Component {
     if (this.state.mode === "shop-assistant") {
       return (
         <NavDropdown title="Administracja" id="basic-nav-dropdown">
-          <NavDropdown.Item href="#action/3.2">
+          <NavDropdown.Item>
             <Link to={"/worker/recipe"} className="nav-link">
               Paragon
             </Link>
           </NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">
+          <NavDropdown.Item>
             <Link to={"/worker/invoice"} className="nav-link">
               Faktury
             </Link>

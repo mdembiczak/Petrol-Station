@@ -1,8 +1,6 @@
 package com.petrolstation.controllers.services;
 
-import com.petrolstation.models.services.Reservation;
 import com.petrolstation.models.services.Service;
-import com.petrolstation.repositories.services.ReservationRepository;
 import com.petrolstation.repositories.services.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,11 +22,6 @@ public class ServiceController {
 
     @RequestMapping(method = RequestMethod.POST)
     public void addPrice(@RequestBody Service service){
-        Service newService = new Service.Builder()
-                .name(service.getName())
-                .price(service.getPrice())
-                .serviceType(service.getServiceType())
-                .build();
         serviceRepository.save(service);
     }
 }
