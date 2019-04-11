@@ -11,6 +11,7 @@ import UserDetailsView from "../logged/userDetailsView.js";
 import ReportsView from "../worker/reportsView.js";
 import MainView from "../main.js";
 import SensorsView from "../worker/sensorsView.js";
+import CamerasView from "../worker/camerasView";
 
 class WorkerView extends Component {
   constructor(props) {
@@ -68,6 +69,7 @@ class WorkerView extends Component {
             <Route path="/worker/user-details" component={UserDetailsView} />
             <Route path="/worker/reports-view" component={ReportsView} />
             <Route path="/worker/sensors" component={SensorsView} />
+            <Route path="/worker/cameras" component={CamerasView} />
           </Switch>
         </div>
       </Router>
