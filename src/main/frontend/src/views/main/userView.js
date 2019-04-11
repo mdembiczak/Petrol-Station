@@ -47,11 +47,12 @@ class WorkerView extends Component {
                     Program lojalnościowy
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to={"/user/contact"} className="nav-link">
-                    Kontakt
+                <li>
+                  <Link to={"/user/refundLoyalityPointsView"} className="nav-link">
+                    Wymiana punktów lojalnościowych
                   </Link>
                 </li>
+
                 <li>
                   <Link to={"/user/user-details"} className="nav-link">
                     Szczegóły konta
@@ -67,9 +68,10 @@ class WorkerView extends Component {
                   Rezerwacja
                 </Link>
               </li>
-                <li>
-                  <Link to={"/user/refundLoyalityPointsView"} className="nav-link">
-                    Wymiana punktów lojalnościowych
+
+                <li className="nav-item">
+                  <Link to={"/user/contact"} className="nav-link">
+                    Kontakt
                   </Link>
                 </li>
                 <li>
