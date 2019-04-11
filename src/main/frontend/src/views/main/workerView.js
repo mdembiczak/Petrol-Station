@@ -48,11 +48,7 @@ class WorkerView extends Component {
                     Podgląd danych klienta
                   </Link>
                 </li>
-                <li>
-                  <Link to={"/worker/car-wash"} className="nav-link">
-                    Rezerwacja myjni
-                  </Link>
-                </li>
+
                 <li>{this.renderAdditionalButton()}</li>
                 <li>
                   <button

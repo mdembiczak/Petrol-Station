@@ -10,6 +10,11 @@ import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
 import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
+import SensorsView from "../worker/sensorsView";
+import InvoiceView from "../worker/invoiceView";
+import AlarmsView from "../worker/alarmsView";
+import CamerasView from "../worker/camerasView";
+import ReceipeView from "../worker/receipeView";
 
 class OwnerView extends Component {
   render() {
@@ -85,6 +90,12 @@ class OwnerView extends Component {
             <Route path="/owner/loyality" component={LoyalityView} />
             <Route path="/owner/contact" component={ContactView} />
             <Route path="/owner/user-details" component={UserDetailsView} />
+            <Route path="/owner/sensors" component={SensorsView} />
+            <Route path="/owner/alarms" component={AlarmsView} />
+            <Route path="/owner/cameras" component={CamerasView} />
+            <Route path="/owner/recipe" component={ReceipeView} />
+            <Route path="/owner/invoice" component={InvoiceView} />
+
           </Switch>
         </div>
       </Router>

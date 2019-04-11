@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/logged/historyView.css";
+import '../../styles/centerText.css';
 
 class refundLoyalityPointsView extends Component {
     constructor() {
@@ -31,17 +32,18 @@ class refundLoyalityPointsView extends Component {
                     <tr>
                         <th scope="col">Nazwa</th>
                         <th scope="col">Ilość potrzebnych punktów</th>
+                        <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row">Pralka</th><td>1000pkt</td>
+                        <th scope="row">Pralka</th><td>1000pkt</td><td><button>Wybierz</button></td>
                     </tr>
                     <tr>
-                        <th scope="row">Zmywarka</th><td>2000pkt</td>
+                        <th scope="row">Zmywarka</th><td>2000pkt</td><td><button>Wybierz</button></td>
                     </tr>
                     <tr>
-                        <th scope="row">Myszka komputerowa</th><td>300pkt</td>
+                        <th scope="row">Myszka komputerowa</th><td>300pkt</td><td><button>Wybierz</button></td>
                     </tr>
                     </tbody>
                 </table>
