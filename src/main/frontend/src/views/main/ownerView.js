@@ -15,6 +15,7 @@ import InvoiceView from "../worker/invoiceView";
 import AlarmsView from "../worker/alarmsView";
 import CamerasView from "../worker/camerasView";
 import ReceipeView from "../worker/receipeView";
+import ContainerView from "../owner/containerView";
 
 class OwnerView extends Component {
   render() {
@@ -75,7 +76,7 @@ class OwnerView extends Component {
                       </Link>
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.3">
-                      <Link to={"/owner/invoice"} className="nav-link">
+                      <Link to={"/owner/container"} className="nav-link">
                         Zbiornik
                       </Link>
                     </NavDropdown.Item>
@@ -100,6 +101,8 @@ class OwnerView extends Component {
             <Route path="/owner/cameras" component={CamerasView} />
             <Route path="/owner/recipe" component={ReceipeView} />
             <Route path="/owner/invoice" component={InvoiceView} />
+            <Route path="/owner/container" component={ContainerView} />
+
 
           </Switch>
         </div>
