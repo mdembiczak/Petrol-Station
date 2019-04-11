@@ -74,6 +74,11 @@ class OwnerView extends Component {
                         Faktury
                       </Link>
                     </NavDropdown.Item>
+                    <NavDropdown.Item href="#action/3.3">
+                      <Link to={"/owner/invoice"} className="nav-link">
+                        Zbiornik
+                      </Link>
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </li>
                 <li>
