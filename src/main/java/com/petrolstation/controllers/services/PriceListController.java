@@ -28,4 +28,11 @@ public class PriceListController {
     public void addPrice(@RequestBody PriceList priceList){
         priceListRepository.save(priceList);
     }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public void editPrice(@RequestBody PriceList priceList){
+        PriceList price = priceListRepository.findByFuelType(priceList.getFuelType());
+        price.setPrice(priceList.getPrice());
+        priceListRepository.save(price);
+    }
 }

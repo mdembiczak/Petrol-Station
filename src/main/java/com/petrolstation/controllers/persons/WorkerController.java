@@ -16,7 +16,7 @@ public class WorkerController {
     @Autowired
     WorkerRepository workerRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Worker> getAllWorkers(){
         return workerRepository.findAll();
     }
