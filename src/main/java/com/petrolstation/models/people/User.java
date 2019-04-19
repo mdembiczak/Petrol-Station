@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collection = "users")
+@Document(collection = "person")
 public class User extends Person {
     public List<Supply> getSupplyList() {
         return supplyList;

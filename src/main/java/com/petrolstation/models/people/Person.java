@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 
 import java.util.*;
 
-abstract  class Person {
+abstract class Person {
 
     @Id
     String id;

@@ -1,0 +1,30 @@
+.registerView-header{
+    padding: 5%;
+}
+.registerView{
+    padding-left:30%;
+}
+.leftSide{
+    float: left;
+    padding: 1%;
+}
+
+.rightSide{
+    float: left;
+    padding: 1%;
+}
+
+.submit{
+    clear: both;
+}
+
+input[type=submit]{
+        background-color: lightgrey;
+        color: blue;
+        border: none;
+        padding: 20px 30px;
+        text-align: center;
+        display: inline-block;
+        font-size: 18px;
+        border-radius: 25%;
+}

@@ -81,7 +81,9 @@ fabric.properties
 /src/main/frontend/coverage
 
 # production
-/src/main/frontend/build
+/src/main/webapp/WEB-INF/frontend/build/
+/src/main/webapp/WEB-INF/frontend/node/
+/src/main/webapp/WEB-INF/frontend/node_modules/**
 
 # misc
 src/main/frontend/.DS_Store

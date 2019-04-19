@@ -1,0 +1,11 @@
+td, th{
+    text-align:center;
+}
+
+.priceView{
+    padding-left:25%;
+}
+h3{
+    padding-bottom:5%;
+    padding-top:5%;
+}

@@ -1,7 +1,9 @@
 package com.petrolstation.models.services;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "price-list")
 public class PriceList {
 
     @Id

@@ -6,8 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Map;
 import java.util.Set;
 
-@Document(collection = "workers")
+@Document(collection = "person")
 public class Owner extends Person {
+
+    public Owner() {
+    }
 
     public Map<Worker, Long> getWorkers() {
         return workers;

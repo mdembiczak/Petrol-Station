@@ -3,10 +3,12 @@ package com.petrolstation.models.services;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.petrolstation.models.people.Worker;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 import java.util.Set;
 
+@Document(collection = "supplies")
 public class Supply {
     @Id
     private Long id;

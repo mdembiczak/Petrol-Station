@@ -2,7 +2,9 @@ package com.petrolstation.models.services;
 
 import com.petrolstation.enums.services.ServiceTypes;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "services")
 public class Service {
     @Id
     private Long id;

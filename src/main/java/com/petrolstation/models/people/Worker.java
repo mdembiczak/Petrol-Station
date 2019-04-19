@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 
 
-@Document(collection = "workers")
+@Document(collection = "person")
 public class Worker extends Person {
     public Optional<String> getAccountNumber() {
         return accountNumber;
