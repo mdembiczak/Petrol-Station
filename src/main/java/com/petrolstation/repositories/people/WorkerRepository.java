@@ -8,4 +8,6 @@ public interface WorkerRepository extends MongoRepository<Worker, String> {
     Worker findByAccessRights(AccessRights accessRights);
     Worker findByAccountNumber(String accountNumber);
     Worker findByFirstNameAndLastName(String firstName, String lastName);
+    Worker findByEmailAndPasswordAndAccessRights(String email, String password, String
+            accessRights);
 }
