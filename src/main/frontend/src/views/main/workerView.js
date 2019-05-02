@@ -23,7 +23,7 @@ class WorkerView extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={"/worker"} className="navbar-brand">
+            <Link to={"/worker/main-page"} className="navbar-brand">
               Stacja Benzynowa
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportContent">
@@ -63,11 +63,11 @@ class WorkerView extends Component {
             </div>
           </nav>
           <Switch>
-            <Route path="/worker" component={MainView} />
+            <Route path="/worker/main-page" component={MainView} />
             <Route path="/worker/price-list" component={PriceListView} />
             <Route path="/worker/loyality" component={LoyalityView} />
             <Route path="/worker/contact" component={ContactView} />
-            {/*<Route path="/worker/user-details" component={UserDetailsView} />*/}
+            <Route path="/worker/user-details" component={UserDetailsView} />
             <Route path="/worker/reports-view" component={ReportsView} />
             <Route path="/worker/sensors" component={SensorsView} />
             <Route path="/worker/cameras" component={CamerasView} />
@@ -83,16 +83,16 @@ class WorkerView extends Component {
     if (this.state.mode === "shop-assistant") {
       return (
         <NavDropdown title="Administracja" id="basic-nav-dropdown">
-          {/*<NavDropdown.Item>*/}
-            {/*<Link to={"/worker/recipe"} className="nav-link">*/}
-              {/*Paragon*/}
-            {/*</Link>*/}
-          {/*</NavDropdown.Item>*/}
-          {/*<NavDropdown.Item>*/}
-            {/*<Link to={"/worker/invoice"} className="nav-link">*/}
-              {/*Faktury*/}
-            {/*</Link>*/}
-          {/*</NavDropdown.Item>*/}
+          <NavDropdown.Item>
+            <Link to={"/worker/recipe"} className="nav-link">
+              Paragon
+            </Link>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <Link to={"/worker/invoice"} className="nav-link">
+              Faktury
+            </Link>
+          </NavDropdown.Item>
           <NavDropdown.Item>
             <Link to={"/worker/reports-view"} className="nav-link">
               Raporty
@@ -108,11 +108,11 @@ class WorkerView extends Component {
               Czujniki
             </Link>
           </NavDropdown.Item>
-          {/* <NavDropdown.Item>
+          <NavDropdown.Item>
             <Link to={"/worker/alarms"} className="nav-link">
               Alarmy
             </Link>
-          </NavDropdown.Item> */}
+          </NavDropdown.Item>
           <NavDropdown.Item>
             <Link to={"/worker/cameras"} className="nav-link">
               Kamery

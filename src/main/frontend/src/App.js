@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
           <Switch>
-            <Route exact path='/index.html' component={GuestView} />
+            <Route exact path='/' component={GuestView} />
             <Route exact path='/user' component={UserView} />
             <Route exact path='/worker' component={WorkerView} />
             <Route exact path='/owner'  component={OwnerView} />

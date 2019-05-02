@@ -8,6 +8,7 @@ import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
+import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
 import SensorsView from "../worker/sensorsView";
 import InvoiceView from "../worker/invoiceView";
@@ -22,7 +23,7 @@ class OwnerView extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={"/owner"} className="navbar-brand">
+            <Link to={"/owner/main-page"} className="navbar-brand">
               Stacja Benzynowa
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportContent">
@@ -90,7 +91,7 @@ class OwnerView extends Component {
             </div>
           </nav>
           <Switch>
-            <Route path="/owner" component={MainView} />
+            <Route path="/owner/main-page" component={MainView} />
             <Route path="/owner/price-list" component={PriceListView} />
             <Route path="/owner/loyality" component={LoyalityView} />
             <Route path="/owner/contact" component={ContactView} />
@@ -101,13 +102,15 @@ class OwnerView extends Component {
             <Route path="/owner/recipe" component={ReceipeView} />
             <Route path="/owner/invoice" component={InvoiceView} />
             <Route path="/owner/container" component={ContainerView} />
+
+
           </Switch>
         </div>
       </Router>
     );
   }
 
-  handleLogout = () => window.location.assign("http://localhost:8080/index.html");
+  handleLogout = () => window.location.assign("http://localhost:3000/");
 
 }
 

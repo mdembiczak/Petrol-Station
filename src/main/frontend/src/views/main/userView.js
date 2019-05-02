@@ -26,13 +26,13 @@ class WorkerView extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={"/user"} className="navbar-brand">
+            <Link to={"/user/main-page"} className="navbar-brand">
               Stacja Benzynowa
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportContent">
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                  <Link to={"/user"} className="nav-link">
+                  <Link to={"/user/main-page"} className="nav-link">
                     Home
                   </Link>
                 </li>
@@ -83,7 +83,7 @@ class WorkerView extends Component {
             </div>
           </nav>
           <Switch>
-            <Route path="/user" component={MainView} />
+            <Route path="/user/main-page" component={MainView} />
             <Route path="/user/price-list" component={PriceListView} />
             <Route path="/user/loyality" component={LoyalityView} />
             <Route path="/user/contact" component={ContactView} />
