@@ -7,8 +7,8 @@
     "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "isomorphic-fetch": "^2.2.1",
-    "jquery": "^3.4.0",
-    "react": "^16.8.6",
+    "jquery": "^3.4.1",
+    "react": "^16.8.5",
     "react-axios": "^2.0.3",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.5",
@@ -17,7 +17,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
-    "typescript": "^3.4.4"
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "start": "react-scripts start",
