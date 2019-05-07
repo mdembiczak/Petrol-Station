@@ -26,9 +26,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{email}/{password}")
     public Boolean getValidation(@PathVariable String email, @PathVariable String password){
-        if(userRepository.findByEmailAndPassword(email, password) != null)
-            return true;
-        return false;
+        return userRepository.findByEmailAndPassword(email, password) != null;
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

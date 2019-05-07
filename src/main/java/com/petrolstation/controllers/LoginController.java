@@ -8,11 +8,11 @@ import com.petrolstation.repositories.people.OwnerRepository;
 import com.petrolstation.repositories.people.UserRepository;
 import com.petrolstation.repositories.people.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
 @RequestMapping(value = "auth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
     @Autowired

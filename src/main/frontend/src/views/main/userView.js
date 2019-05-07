@@ -19,8 +19,26 @@ import MainView from "../main.js";
 
 
 class WorkerView extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      user: null
+    };
+  }
+
   handleLogout = () => window.location.assign("http://localhost:3000/");
 
+  componentDidMount() {
+    fetch('http://localhost:8080/auth/user?email=email@gmail.com&password=123')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      this.setState({ user: data });
+    })
+    .catch(error => console.log(error));
+  }
+  
   render() {
     return (
       <Router>
@@ -54,7 +72,10 @@ class WorkerView extends Component {
                 </li>
 
                 <li>
-                  <Link to={"/user/user-details"} className="nav-link">
+                  <Link to={{ 
+                    pathname: "/user/user-details", 
+                    state: {user: this.state.user}
+                }} className="nav-link">
                     Szczegóły konta
                   </Link>
                 </li>
