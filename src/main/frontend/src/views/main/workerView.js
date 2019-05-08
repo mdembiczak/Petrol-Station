@@ -38,15 +38,14 @@ class WorkerView extends Component {
                     Program lojalnościowy
                   </Link>
                 </li>
-
-                <li>
-                  <Link to={"/worker/user-details"} className="nav-link">
-                    Podgląd danych klienta
-                  </Link>
-                </li>
                 <li className="nav-item">
                   <Link to={"/worker/contact"} className="nav-link">
                     Kontakt
+                  </Link>
+                </li>
+                <li>
+                  <Link to={"/worker/user-details"} className="nav-link">
+                    Podgląd danych klienta
                   </Link>
                 </li>
 
