@@ -3,13 +3,15 @@ package com.petrolstation.models.services;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "loyalityprizes")
+@Document(collection = "loyality-prizes")
 public class LoyalityPrizes {
 
     @Id
     private int id;
-    private String priceName;
+    private String prizeName;
     private int points;
+
+    public LoyalityPrizes(){}
 
     public int getId() {
         return id;
@@ -19,12 +21,12 @@ public class LoyalityPrizes {
         this.id = id;
     }
 
-    public String getPriceName() {
-        return priceName;
+    public String getPrizeName() {
+        return prizeName;
     }
 
-    public void setPriceName(String priceName) {
-        this.priceName = priceName;
+    public void setPrizeName(String prizeName) {
+        this.prizeName = prizeName;
     }
 
     public int getPoints() {

@@ -11,7 +11,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/prizes?callback=foo')
+        fetch('http://localhost:8080/loyality-prizes?callback=foo')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
