@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../styles/loginView.css';
+import { Redirect } from 'react-router-dom'
 
 class loginView extends Component {
     constructor(props){
@@ -13,7 +14,7 @@ class loginView extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.login + ", " + this.state.password);
+
         event.preventDefault();
     }
     handleChange(event) {
