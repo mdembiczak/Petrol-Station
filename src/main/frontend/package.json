@@ -8,6 +8,7 @@
     "cors": "^2.8.5",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^3.4.1",
+    "query-string": "^6.5.0",
     "react": "^16.8.5",
     "react-axios": "^2.0.3",
     "react-bootstrap": "^1.0.0-beta.6",

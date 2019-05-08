@@ -7,11 +7,6 @@ import cam3 from "../../images/cam3.jpg";
 import cam4 from "../../images/cam4.jpg";
 
 class camerasView extends Component {
-    constructor() {
-        super();
-    }
-
-
     render() {
         return (
             <div>

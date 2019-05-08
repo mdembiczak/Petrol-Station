@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "../../styles/worker/reportsView.css";
 
 class invoiceView extends Component {
-    constructor() {
-        super();
-    }
-
 
     render() {
         return (

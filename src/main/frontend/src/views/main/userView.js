@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import querystring from "query-string";
 
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
@@ -17,9 +14,7 @@ import ReservationView from "../logged/reservationView.js";
 import RefundLoyalityPointsView from "../logged/refundLoyalityPointsView";
 import MainView from "../main.js";
 
-
 class WorkerView extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -29,16 +24,18 @@ class WorkerView extends Component {
 
   handleLogout = () => window.location.assign("http://localhost:3000/");
 
-   componentDidMount() {
-    fetch('http://localhost:8080/auth/user?email=email@gmail.com&password=123')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      this.setState({ user: data });
-    })
-    .catch(error => console.log(error));
+  componentDidMount() {
+    const parsed = querystring.parse(this.props.location.search);
+    console.log(parsed);
+    fetch("http://localhost:8080/users?id=" + parsed.id)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ user: data });
+      })
+      .catch(error => console.log(error));
   }
-  
+
   render() {
     return (
       <Router>
@@ -66,16 +63,22 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/refundLoyalityPointsView"} className="nav-link">
+                  <Link
+                    to={"/user/refundLoyalityPointsView"}
+                    className="nav-link"
+                  >
                     Wymiana punktów lojalnościowych
                   </Link>
                 </li>
 
                 <li>
-                  <Link to={{ 
-                    pathname: "/user/user-details", 
-                    state: {user: this.state.user}
-                }} className="nav-link">
+                  <Link
+                    to={{
+                      pathname: "/user/user-details",
+                      state: { user: this.state.user }
+                    }}
+                    className="nav-link"
+                  >
                     Szczegóły konta
                   </Link>
                 </li>
@@ -85,10 +88,10 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                <Link to={"/user/reservation-view"} className="nav-link">
-                  Rezerwacja
-                </Link>
-              </li>
+                  <Link to={"/user/reservation-view"} className="nav-link">
+                    Rezerwacja
+                  </Link>
+                </li>
 
                 <li className="nav-item">
                   <Link to={"/user/contact"} className="nav-link">
@@ -96,7 +99,10 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.handleLogout}>
+                  <button
+                    className="btn btn-outline-success my-2 my-sm-0"
+                    onClick={this.handleLogout}
+                  >
                     Logout
                   </button>
                 </li>
@@ -108,10 +114,13 @@ class WorkerView extends Component {
             <Route path="/user/price-list" component={PriceListView} />
             <Route path="/user/loyality" component={LoyalityView} />
             <Route path="/user/contact" component={ContactView} />
-            <Route path="/user/user-details" component={UserDetailsView} />   
+            <Route path="/user/user-details" component={UserDetailsView} />
             <Route path="/user/service-history" component={HistoryView} />
             <Route path="/user/reservation-view" component={ReservationView} />
-            <Route path="/user/refundLoyalityPointsView" component={RefundLoyalityPointsView} />
+            <Route
+              path="/user/refundLoyalityPointsView"
+              component={RefundLoyalityPointsView}
+            />
             {/* <Route path="/user/invoices" component={InvoicesView} /> */}
           </Switch>
         </div>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
 import '../styles/registerView.css';
 import fetch from 'isomorphic-fetch';
-import axios from 'axios';
 
 
 class registerView extends Component {

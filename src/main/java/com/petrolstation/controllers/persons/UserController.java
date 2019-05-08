@@ -20,21 +20,16 @@ public class UserController {
     UserRepository userRepository;
 
     @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(method = RequestMethod.GET, value = "/{email}")
-    public User getUserById(@PathVariable String email){
-        return userRepository.findByEmail(email);
+    @RequestMapping(method = RequestMethod.GET)
+    public User getUserById(@RequestParam String id){
+        return userRepository.findById(id).get();
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{email}/{password}")
     public Boolean getValidation(@PathVariable String email, @PathVariable String password){
         return userRepository.findByEmailAndPassword(email, password) != null;
     }
-
-    @CrossOrigin(origins = "http://localhost:3000")
-    @RequestMapping(method = RequestMethod.GET)
-    public List<User> showUsers(){
-        return userRepository.findAll();
-    }
+    
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)

@@ -10,8 +10,6 @@ class refundLoyalityPointsView extends Component {
         };
     }
 
-
-
     componentDidMount() {
         fetch('http://localhost:8080/loyality-prizes?callback=foo')
             .then(response => response.json())

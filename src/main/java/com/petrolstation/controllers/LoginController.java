@@ -26,8 +26,12 @@ public class LoginController {
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public User getUser(@RequestParam String email, @RequestParam String password) {
-        return userRepository.findByEmailAndPasswordAndAccessRights(email, password,
+        User user =  userRepository.findByEmailAndPasswordAndAccessRights(email, password,
                 AccessRights.USER.toString());
+        if(user == null) {
+            return null;
+        }
+        return user;
     }
 
     @RequestMapping(value = "worker", method = RequestMethod.GET)
