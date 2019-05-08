@@ -8,7 +8,7 @@ class priceView extends Component {
       prices: []
     };
   }
-
+//Cokolwiek
 
 
   componentDidMount() {
