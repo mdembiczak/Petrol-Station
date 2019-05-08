@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET, value = "/{email}")
     public User getUserById(@PathVariable String email){
         return userRepository.findByEmail(email);
