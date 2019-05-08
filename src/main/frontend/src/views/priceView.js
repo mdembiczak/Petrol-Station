@@ -8,8 +8,6 @@ class priceView extends Component {
       prices: []
     };
   }
-//Cokolwiek
-
 
   componentDidMount() {
     fetch('http://localhost:8080/prices?callback=foo')

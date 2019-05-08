@@ -15,7 +15,6 @@ class UserDetailsView extends Component {
     return (
       <div className="userView">
         <h3>Dane użytkownika</h3>
-               return (
                   <table className="table">
 
                       <thead className="thead-dark"><tr><th scope="col">Imię: &nbsp;&nbsp;</th><th scope="col">{this.state.userDetails.firstName}</th></tr></thead>
@@ -26,10 +25,6 @@ class UserDetailsView extends Component {
                       <tr><th scope="row">Adres e-mail: &nbsp;&nbsp;</th><td>{this.state.userDetails.email}</td></tr>
                       </tbody>
                   </table>
-
-                )
-
-            }
       </div>
     );
   }

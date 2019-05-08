@@ -29,7 +29,7 @@ class WorkerView extends Component {
 
   handleLogout = () => window.location.assign("http://localhost:3000/");
 
-  componentDidMount() {
+   componentDidMount() {
     fetch('http://localhost:8080/auth/user?email=email@gmail.com&password=123')
     .then(response => response.json())
     .then(data => {

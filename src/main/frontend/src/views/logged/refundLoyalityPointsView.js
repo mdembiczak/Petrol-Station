@@ -6,49 +6,54 @@ class refundLoyalityPointsView extends Component {
     constructor() {
         super();
         this.state = {
-            loyalityFunds: []
+            prizes: []
         };
     }
 
 
 
     componentDidMount() {
-        fetch('http://localhost:8080/service?callback=foo')
+        fetch('http://localhost:8080/loyality-prizes?callback=foo')
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.setState({ prices: data});
+                this.setState({ prizes: data});
             })
             .catch(error => console.log(error));
     }
 
     render() {
-        const { loyalityFunds } = this.state;
+        const { prizes } = this.state;
         return (
             <div>
-                <h2>Wymiana punktów lojalnościowych</h2>
+                <h3>Nagrody programu lojalnościowego</h3>
                 <table className="table">
                     <thead className="thead-dark">
                     <tr>
-                        <th scope="col">Nazwa</th>
-                        <th scope="col">Ilość potrzebnych punktów</th>
-                        <th scope="col"></th>
+                        <th scope="col">Nagroda</th>
+                        <th scope="col">Wymagana liczba punktów</th>
+                        <th scope="col">Wymień!</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">Pralka</th><td>1000pkt</td><td><button>Wybierz</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Zmywarka</th><td>2000pkt</td><td><button>Wybierz</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Myszka komputerowa</th><td>300pkt</td><td><button>Wybierz</button></td>
-                    </tr>
+
+
+                    {prizes.map(function(item, key) {
+
+                        return (
+
+                            <tr key={key}>
+                                <th scope="row">{item.prizeName}</th>
+                                <td>{item.points}</td>
+                                <td><button>Wymień!</button></td>
+                            </tr>
+                        )
+
+                    })}
                     </tbody>
                 </table>
             </div>
-    );
+        );
     }
 }
 
