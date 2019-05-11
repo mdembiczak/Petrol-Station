@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/reservation")
 public class ReservationController {
@@ -16,10 +17,11 @@ public class ReservationController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET, value="/getReservations")
-    public List<Reservation> getReservations(@RequestBody String id){
-        return reservationRepository.findAllByUserId(id);
+    public List<Reservation> getReservations(@RequestParam String userId){
+        return reservationRepository.findReservationByUserId(userId);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST, value="/setReservation")
     public void setReservation(@RequestBody Reservation res){
         reservationRepository.save(res);

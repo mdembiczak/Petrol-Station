@@ -88,7 +88,13 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/reservation-view"} className="nav-link">
+                    <Link
+                        to={{
+                          pathname: "/user/reservation-view",
+                          state: { user: this.state.user }
+                        }}
+                        className="nav-link"
+                    >
                     Rezerwacja
                   </Link>
                 </li>

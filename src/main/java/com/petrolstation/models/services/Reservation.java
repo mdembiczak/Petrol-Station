@@ -55,15 +55,22 @@ public class Reservation {
         reservation.date = this.date;
         reservation.supply = this.supply;
         reservation.isDone = this.isDone;
+        reservation.userId = this.userId;
         return reservation;
     }
 
     public final static class Builder{
-        private Supply supply;
+        private String supply;
         private Date date;
         private Boolean isDone;
+        private String userId;
 
-        public Builder supply(Supply supply){
+        public Builder userId(String userId){
+            this.userId = userId;
+            return this;
+        }
+
+        public Builder supply(String supply){
             this.supply = supply;
             return this;
         }

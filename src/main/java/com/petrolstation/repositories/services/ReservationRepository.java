@@ -9,5 +9,5 @@ import java.util.List;
 public interface ReservationRepository extends MongoRepository<Reservation, String> {
     Reservation findByIsDone(Boolean isDone);
     Reservation findByDate(Date date);
-    List<Reservation> findAllByUserId(String id);
+    List<Reservation> findReservationByUserId(String userId);
 }

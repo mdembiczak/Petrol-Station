@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../../styles/logged/userDetailsView.css";
 
 class reservationView extends Component {
 
@@ -6,12 +7,13 @@ class reservationView extends Component {
         console.log(props);
         super(props);
         this.state = {
-            userDetails: props.location.state.user
+            userDetails: props.location.state.user,
+            reservations:[]
         };
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/reservation/getReservations?'+{userDetails:this.state.userDetails.id})
+        fetch('http://localhost:8080/reservation/getReservations?userId='+this.state.userDetails.id)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -21,6 +23,7 @@ class reservationView extends Component {
     }
 
   render() {
+    const { reservations } = this.state;
     return (
       <div>
         <h2>Rezerwacja myjni</h2>
@@ -60,13 +63,21 @@ class reservationView extends Component {
               <th scope="col">Ilość stanowisk</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <th scope="row">01.01.2019r</th>
-              <td>12:20</td>
-              <td>2</td>
-            </tr>
-          </tbody>
+            <tbody>
+
+
+            {reservations.map(function(item, key) {
+
+                return (
+
+                    <tr key={key}>
+                        <th scope="row">{item.supply}</th>
+                        <td>{item.date}</td>
+                    </tr>
+                )
+
+            })}
+            </tbody>
         </table>
       </div>
     );
