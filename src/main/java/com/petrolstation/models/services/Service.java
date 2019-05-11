@@ -4,13 +4,24 @@ import com.petrolstation.enums.services.ServiceTypes;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "services")
 public class Service {
     @Id
     private Long id;
     private String name;
     private Double price;
+    private Date date;
     private ServiceTypes serviceType;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public Long getId() {
         return id;

@@ -37,6 +37,7 @@ public class User extends Person {
         private String city;
         private String postalCode;
         private String accessRights;
+        private int amountPoints;
         private List<Supply> supplies;
         private List<Reservation> reservations;
 
@@ -44,6 +45,10 @@ public class User extends Person {
 
         }
 
+        public Builder amountPoints(int amountPoints) {
+            this.amountPoints = amountPoints;
+            return this;
+        }
         public Builder firstName(String firstName) {
             this.firstName = firstName;
             return this;
@@ -97,6 +102,7 @@ public class User extends Person {
             user.password = this.password;
             user.city = this.city;
             user.postalCode = this.postalCode;
+            user.amountPoints = this.amountPoints;
             user.accessRights = AccessRights.valueOf(this.accessRights);
             user.supplyList = this.supplies;
             user.reservationList = this.reservations;

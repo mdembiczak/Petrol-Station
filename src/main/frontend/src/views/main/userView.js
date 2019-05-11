@@ -83,7 +83,10 @@ class WorkerView extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={"/user/service-history"} className="nav-link">
+                  <Link to={{
+                    pathname: "/user/service-history",
+                    state: { user: this.state.user }
+                  }} className="nav-link">
                     Historia tankowania
                   </Link>
                 </li>

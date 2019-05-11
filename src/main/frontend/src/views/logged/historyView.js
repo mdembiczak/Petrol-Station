@@ -2,17 +2,16 @@ import React, { Component } from "react";
 import "../../styles/logged/historyView.css";
 
 class HistoryView extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      prices: []
+      prices: [],
+      userDetails: props.location.state.user,
     };
   }
 
-
-
   componentDidMount() {
-    fetch('http://localhost:8080/service?callback=foo')
+    fetch('http://localhost:8080/service/getUsersHistory?name='+this.state.userDetails.email)
     .then(response => response.json())
     .then(data => {
       console.log(data);
@@ -31,6 +30,7 @@ class HistoryView extends Component {
                         <tr>
                           <th scope="col">Usługa</th>
                           <th scope="col">Cena</th>
+                          <th scope="col">Data</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -39,7 +39,7 @@ class HistoryView extends Component {
                return (
 
                   <tr key = {key}>
-                      <th scope="row">{item.serviceType}</th><td>{item.price}</td>
+                      <th scope="row">{item.serviceType}</th><td>{item.price}</td><td>{item.date}</td>
                   </tr>
 
                 )

@@ -24,4 +24,8 @@ public class ServiceController {
     public void addPrice(@RequestBody Service service){
         serviceRepository.save(service);
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET, value="/getUsersHistory")
+    public List<Service> showUsersHistory(@RequestParam String name){return serviceRepository.findAllByName(name);}
 }
