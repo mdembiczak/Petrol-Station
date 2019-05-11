@@ -11,8 +11,18 @@ public class Reservation {
     private String id;
     private String supply;
     private Date date;
+    private int numberOfPlaces;
     private String userId;
     private Boolean isDone;
+
+
+    public int getNumberOfPlaces() {
+        return numberOfPlaces;
+    }
+
+    public void setNumberOfPlaces(int numberOfPlaces) {
+        this.numberOfPlaces = numberOfPlaces;
+    }
 
     public String getUserId() {
         return userId;
