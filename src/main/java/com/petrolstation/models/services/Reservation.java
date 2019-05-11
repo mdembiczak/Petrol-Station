@@ -9,31 +9,21 @@ import java.util.Date;
 public class Reservation {
     @Id
     private String id;
-    private String supply;
+    private Supply supply;
     private Date date;
     private Boolean isDone;
-    private String userId;
-
-    public String getSupply() {
-        return supply;
-    }
-
-    public void setSupply(String supply) {
-        this.supply = supply;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
 
     public String getId() {
         return id;
     }
 
+    public Supply getSupply() {
+        return supply;
+    }
+
+    public void setSupply(Supply supply) {
+        this.supply = supply;
+    }
 
     public Date getDate() {
         return date;

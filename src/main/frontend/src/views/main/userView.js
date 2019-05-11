@@ -32,7 +32,6 @@ class WorkerView extends Component {
       .then(data => {
         console.log(data);
         this.setState({ user: data });
-
       })
       .catch(error => console.log(error));
   }
