@@ -2,30 +2,11 @@ import React, { Component } from "react";
 
 class reservationView extends Component {
 
-    constructor(props) {
-        console.log(props);
-        super(props);
-        this.state = {
-            userDetails: props.location.state.user
-        };
-    }
-
-    componentDidMount() {
-        fetch('http://localhost:8080/reservation/getReservations?'+{userDetails:this.state.userDetails.id})
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                this.setState({ reservations: data});
-            })
-            .catch(error => console.log(error));
-    }
-
   render() {
     return (
       <div>
         <h2>Rezerwacja myjni</h2>
         <table className="table">
-
           <thead className="thead-dark">
             <tr>
               <th scope="col">Data</th>
