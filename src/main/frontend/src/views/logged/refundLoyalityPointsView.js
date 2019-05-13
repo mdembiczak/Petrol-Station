@@ -50,8 +50,8 @@ class refundLoyalityPointsView extends Component {
 
 
                     {prizes.map(function(item, key) {
-                        function handlePoints(value){
-                            fetch('http://localhost:8080/users/updatePoints?mail='+mail+'&amount='+value, {
+                        function handlePoints(){
+                            fetch('http://localhost:8080/users/updatePoints?mail='+mail+'&amount='+item.points, {
                                 method: 'POST',
                                 headers: {
                                     'Accept': 'application/json',
@@ -67,7 +67,7 @@ class refundLoyalityPointsView extends Component {
                             <tr key={key}>
                                 <th scope="row">{item.prizeName}</th>
                                 <td>{item.points}</td>
-                                <td><button onDoubleClick={handlePoints(item.points)}>Wymień!</button></td>
+                                <td><button onClick={handlePoints}>Wymień!</button></td>
                             </tr>
                         )
 
