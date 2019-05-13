@@ -32,6 +32,7 @@ class refundLoyalityPointsView extends Component {
         console.log(this.state.userDetails);
         const mail = this.state.userDetails.email;
         var beenTaken = this.state.beenTaken;
+        var amountPoints = this.state.userDetails.amountPoints;
 
 
         return (
@@ -39,7 +40,7 @@ class refundLoyalityPointsView extends Component {
 
             <div>
                 <h3>Nagrody programu lojalnościowego</h3>
-                <h4>Ilość punktów: {this.state.userDetails.amountPoints}</h4>
+                <h4>Ilość punktów: {amountPoints}</h4>
                 <table className="table">
                     <thead className="thead-dark">
                     <tr>
@@ -54,17 +55,19 @@ class refundLoyalityPointsView extends Component {
                     {prizes.map(function(item, key) {
                         function handlePoints(){
                             if(beenTaken==false) {
-                                fetch('http://localhost:8080/users/updatePoints?mail=' + mail + '&amount=' + item.points, {
-                                    method: 'POST',
-                                    headers: {
-                                        'Accept': 'application/json',
-                                        'Content-Type': 'application/json'
-                                    }
-                                }).then(obj => console.log(obj))
-                                    .then(response => console.log('Success:', JSON.stringify(response)))
-                                    .catch(error => console.error('Error:', error));
-                                window.alert("Wybrano nagrodę "+item.prizeName+" za "+item.points+" punktów");
-                                beenTaken=true;
+                                if (amountPoints > item.points) {
+                                    fetch('http://localhost:8080/users/updatePoints?mail=' + mail + '&amount=' + item.points, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Accept': 'application/json',
+                                            'Content-Type': 'application/json'
+                                        }
+                                    }).then(obj => console.log(obj))
+                                        .then(response => console.log('Success:', JSON.stringify(response)))
+                                        .catch(error => console.error('Error:', error));
+                                    window.alert("Wybrano nagrodę " + item.prizeName + " za " + item.points + " punktów");
+                                    beenTaken = true;
+                                }
                             }
                         }
 
