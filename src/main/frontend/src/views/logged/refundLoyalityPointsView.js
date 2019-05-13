@@ -63,6 +63,7 @@ class refundLoyalityPointsView extends Component {
                                 }).then(obj => console.log(obj))
                                     .then(response => console.log('Success:', JSON.stringify(response)))
                                     .catch(error => console.error('Error:', error));
+                                window.alert("Wybrano nagrodę "+item.prizeName+" za "+item.points+" punktów");
                                 beenTaken=true;
                             }
                         }
