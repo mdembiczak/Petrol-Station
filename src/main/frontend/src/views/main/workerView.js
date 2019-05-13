@@ -7,7 +7,7 @@ import { NavDropdown } from "react-bootstrap";
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
-import UserDetailsView from "../logged/userDetailsView.js";
+import UserDetailsView from "../worker/allUsersView.js";
 import ReportsView from "../worker/reportsView.js";
 import MainView from "../main.js";
 import SensorsView from "../worker/sensorsView.js";
