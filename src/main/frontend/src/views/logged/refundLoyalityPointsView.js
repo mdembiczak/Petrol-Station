@@ -11,6 +11,7 @@ class refundLoyalityPointsView extends Component {
             userDetails: props.location.state.user,
             prize:'',
             points:0,
+            beenTaken:false
         };
     }
 
@@ -30,6 +31,7 @@ class refundLoyalityPointsView extends Component {
         const { prizes } = this.state;
         console.log(this.state.userDetails);
         const mail = this.state.userDetails.email;
+        var beenTaken = this.state.beenTaken;
 
 
         return (
@@ -51,15 +53,18 @@ class refundLoyalityPointsView extends Component {
 
                     {prizes.map(function(item, key) {
                         function handlePoints(){
-                            fetch('http://localhost:8080/users/updatePoints?mail='+mail+'&amount='+item.points, {
-                                method: 'POST',
-                                headers: {
-                                    'Accept': 'application/json',
-                                    'Content-Type': 'application/json'
-                                }
-                            }).then(obj => console.log(obj))
-                                .then(response => console.log('Success:', JSON.stringify(response)))
-                                .catch(error => console.error('Error:', error));
+                            if(beenTaken==false) {
+                                fetch('http://localhost:8080/users/updatePoints?mail=' + mail + '&amount=' + item.points, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Accept': 'application/json',
+                                        'Content-Type': 'application/json'
+                                    }
+                                }).then(obj => console.log(obj))
+                                    .then(response => console.log('Success:', JSON.stringify(response)))
+                                    .catch(error => console.error('Error:', error));
+                                beenTaken=true;
+                            }
                         }
 
                         return (
