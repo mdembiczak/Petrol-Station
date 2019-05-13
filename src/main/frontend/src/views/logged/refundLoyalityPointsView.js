@@ -67,7 +67,11 @@ class refundLoyalityPointsView extends Component {
                                         .catch(error => console.error('Error:', error));
                                     window.alert("Wybrano nagrodę " + item.prizeName + " za " + item.points + " punktów");
                                     beenTaken = true;
+                                }else{
+                                    window.alert("Posiadasz zbyt małą ilość punktów!");
                                 }
+                            }else{
+                                window.alert("Można wybrać tylko jedną nagrodę na sesję!");
                             }
                         }
 
