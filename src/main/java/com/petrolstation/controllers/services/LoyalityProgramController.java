@@ -31,4 +31,5 @@ public class LoyalityProgramController {
         loyalityProgramRepository.save(loyalityProgram);
         return "Updated Loyality Program";
     }
+
 }

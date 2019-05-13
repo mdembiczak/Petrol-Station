@@ -64,7 +64,10 @@ class WorkerView extends Component {
                 </li>
                 <li>
                   <Link
-                    to={"/user/refundLoyalityPointsView"}
+                    to={{
+                      pathname: "/user/refundLoyalityPointsView",
+                      state: { user: this.state.user }
+                    }}
                     className="nav-link"
                   >
                     Wymiana punktów lojalnościowych

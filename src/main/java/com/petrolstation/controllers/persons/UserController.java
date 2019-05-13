@@ -42,6 +42,7 @@ public class UserController {
                 .email(user.getEmail())
                 .password(user.getPassword())
                 .accessRight(AccessRights.USER.toString())
+                .amountPoints(0)
                 .supplies(new ArrayList<>())
                 .reservations(new ArrayList<>())
                 .build();
@@ -71,4 +72,13 @@ public class UserController {
         userRepository.save(editedUser);
         return editedUser;
     }
+
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.POST, value="/updatePoints")
+    public void updatePoints(@RequestParam String mail, @RequestParam int amount){
+        User u = userRepository.findByEmail(mail);
+        u.setAmountPoints(u.getAmountPoints()-amount);
+        userRepository.save(u);
+    }
+
 }
