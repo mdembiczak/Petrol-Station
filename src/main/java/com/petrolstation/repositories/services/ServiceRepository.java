@@ -4,6 +4,7 @@ import com.petrolstation.enums.services.ServiceTypes;
 import com.petrolstation.models.services.Service;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ServiceRepository extends MongoRepository<Service, String> {
@@ -12,4 +13,5 @@ public interface ServiceRepository extends MongoRepository<Service, String> {
     Service findByPrice(Double price);
     Service findByServiceType(ServiceTypes serviceType);
     List<Service> findAllByName(String name);
+    List<Service> findAllByDateBetween(Date one, Date two);
 }
