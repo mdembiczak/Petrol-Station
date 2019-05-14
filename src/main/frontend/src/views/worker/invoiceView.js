@@ -5,12 +5,13 @@ class invoiceView extends Component {
     constructor() {
         super();
         this.state = {
-            services: [{name: "", price: ""}],
+            services: [],
             Nazwa: "",
             NIP: "",
             Data: "",
 
         }
+        this.handleThing = this.handleThing.bind(this);
     }
     handleChange = (e) => {
         if (["name", "price"].includes(e.target.className) ) {
@@ -23,11 +24,10 @@ class invoiceView extends Component {
     }
     addService = (e) => {
         this.setState((prevState) => ({
-            services: [...prevState.services, {name:"", price:""}],
+            services: [...prevState.services,{name: "", price: ""}],
         }));
     }
     handleSubmit = (e) => { e.preventDefault() }
-
 
     handleThing(){
         console.log(this.state.services);
@@ -72,7 +72,7 @@ class invoiceView extends Component {
                         )
                     })
                 }
-                <input type="submit" value="Submit" />
+                <input type="button" value="Submit" onClick={this.handleThing}/>
             </form>
         )
     }
