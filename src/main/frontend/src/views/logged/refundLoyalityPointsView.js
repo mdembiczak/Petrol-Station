@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ReactDOM from 'react-dom';
+
 import "../../styles/logged/historyView.css";
 import '../../styles/centerText.css';
 import fetch from "isomorphic-fetch";
@@ -67,11 +69,8 @@ class refundLoyalityPointsView extends Component {
                                         .catch(error => console.error('Error:', error));
                                     window.alert("Wybrano nagrodę " + item.prizeName + " za " + item.points + " punktów");
                                     beenTaken = true;
-                                }else{
-                                    window.alert("Posiadasz zbyt małą ilość punktów!");
+
                                 }
-                            }else{
-                                window.alert("Można wybrać tylko jedną nagrodę na sesję!");
                             }
                         }
 
@@ -91,5 +90,5 @@ class refundLoyalityPointsView extends Component {
         );
     }
 }
-
 export default refundLoyalityPointsView;
+
