@@ -9,6 +9,11 @@ class ReportsView extends Component {
       services: [],
       one: '',
       two: '',
+      myjnia: 0,
+      LPG: 0,
+      ON: 0,
+      PB95: 0,
+      PB98: 0,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -39,6 +44,14 @@ class ReportsView extends Component {
   render() {
     const {services} =this.state;
     const {one, two}= this.state;
+    var myjnia = this.state.myjnia;
+    var LPG = this.state.LPG;
+    var ON = this.state.ON;
+    var PB95 = this.state.PB95;
+    var PB98 = this.state.PB98;
+
+    console.log(this.state.ON);
+
     return (
          <div>
           <h2>Raporty</h2>
@@ -65,6 +78,18 @@ class ReportsView extends Component {
               </thead>
               <tbody>
               {services.map(function(item, key) {
+                  if(item.serviceType=="Myjnia") {
+                      myjnia += item.price;
+                  }
+                  if(item.serviceType=="ON") {
+                      ON += item.price;
+                  }
+                  if(item.serviceType=="LPG")
+                      LPG+=item.price;
+                  if(item.serviceType=="PB95")
+                      PB95+=item.price;
+                  if(item.serviceType=="PB98")
+                      PB98+=item.price;
 
                 return (
 
@@ -74,9 +99,42 @@ class ReportsView extends Component {
 
                 )
 
+
               })}
               </tbody>
             </table>
+
+             <table  className="table">
+                 <thead className="thead-dark">
+                 <tr>
+                     <th scope="col">Usługa</th>
+                     <th scope="col">Cena sumaryczna</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                 <tr>
+                     <td>Myjnia</td><td>{myjnia}</td>
+                 </tr>
+
+                 <tr>
+                     <td>ON</td><td>{ON}</td>
+                 </tr>
+
+                 <tr>
+                     <td>LPG</td><td>{LPG}</td>
+                 </tr>
+
+                 <tr>
+                     <td>PB95</td><td>{PB95}</td>
+                 </tr>
+
+                 <tr>
+                     <td>PB98</td><td>{PB98}</td>
+                 </tr>
+
+                 </tbody>
+
+             </table>
         </div>
     );
   }
