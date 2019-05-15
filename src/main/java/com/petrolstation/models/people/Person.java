@@ -20,7 +20,7 @@ public abstract class Person {
     String postalCode;
     int amountPoints;
     AccessRights accessRights;
-    Optional<String> accountNumber;
+    String accountNumber;
     Map<Date,Integer> workingHours;
     List<Supply> supplyList;
     List<Reservation> reservationList;

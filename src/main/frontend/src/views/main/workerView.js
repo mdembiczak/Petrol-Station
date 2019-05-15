@@ -17,7 +17,10 @@ import CamerasView from "../worker/camerasView";
 class WorkerView extends Component {
   constructor(props) {
     super(props);
-    this.state = { mode: "shop-assitant" };
+    this.state = {
+      worker: null,
+      mode: null
+    };
   }
 
   componentDidMount() {
@@ -27,7 +30,7 @@ class WorkerView extends Component {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-        this.setState({ user: data });
+        this.setState({ worker: data, mode: data.accessRights});
       })
       .catch(error => console.log(error));
   }
@@ -94,7 +97,7 @@ class WorkerView extends Component {
   handleLogout = () => window.location.assign("http://localhost:3000/");
 
   renderAdditionalButton() {
-    if (this.state.mode === "shop-assistant") {
+    if (this.state.mode == "SHOP_ASSISTANT") {
       return (
         <NavDropdown title="Administracja" id="basic-nav-dropdown">
           <NavDropdown.Item>

@@ -27,14 +27,11 @@ public class WorkerController {
         return workerRepository.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Worker getWorker(@RequestParam String firstName, @RequestParam String lastName){
-        return workerRepository.findByFirstNameAndLastName(firstName, lastName);
-    }
 
     @RequestMapping(method = RequestMethod.POST)
     public Worker addWorker(@RequestBody Worker worker){
         worker.setWorkingHours(new HashMap<>());
+        worker.setAccountNumber(worker.getAccountNumber());
         return workerRepository.save(worker);
     }
 

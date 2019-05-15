@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 
+import querystring from "query-string";
+
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
@@ -18,6 +20,26 @@ import ReceipeView from "../worker/receipeView";
 import ContainerView from "../owner/containerView";
 
 class OwnerView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      owner: null
+    };
+  }
+
+  handleLogout = () => window.location.assign("http://localhost:3000/");
+
+  componentDidMount() {
+    const parsed = querystring.parse(this.props.location.search);
+    console.log(parsed);
+    fetch("http://localhost:8080/owner?id=" + parsed.id)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ owner: data });
+      })
+      .catch(error => console.log(error));
+  }
   render() {
     return (
       <Router>

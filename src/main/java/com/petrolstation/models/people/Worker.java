@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @Document(collection = "person")
 public class Worker extends Person {
-    public Optional<String> getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(Optional<String> accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -35,7 +35,7 @@ public class Worker extends Person {
         private String city;
         private String postalCode;
         private AccessRights accessRights;
-        private Optional<String> accountNumber;
+        private String accountNumber;
         private Map<Date,Integer> workingHours;
 
         public Builder firstName(String firstName) {
@@ -73,7 +73,7 @@ public class Worker extends Person {
             return this;
         }
 
-        public Builder accountNumber(Optional<String> accountNumber){
+        public Builder accountNumber(String accountNumber){
             this.accountNumber = accountNumber;
             return this;
         }
