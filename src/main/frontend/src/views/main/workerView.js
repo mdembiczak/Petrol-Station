@@ -3,6 +3,7 @@ import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
+import querystring from "query-string";
 
 import ContactView from "../contactView";
 import PriceListView from "../priceView";
@@ -18,6 +19,19 @@ class WorkerView extends Component {
     super(props);
     this.state = { mode: "shop-assitant" };
   }
+
+  componentDidMount() {
+    const parsed = querystring.parse(this.props.location.search);
+    console.log(parsed);
+    fetch("http://localhost:8080/worker?id=" + parsed.id)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        this.setState({ user: data });
+      })
+      .catch(error => console.log(error));
+  }
+
   render() {
     return (
       <Router>

@@ -14,7 +14,7 @@ import ReservationView from "../logged/reservationView.js";
 import RefundLoyalityPointsView from "../logged/refundLoyalityPointsView";
 import MainView from "../main.js";
 
-class WorkerView extends Component {
+class UserView extends Component {
   constructor() {
     super();
     this.state = {
@@ -141,4 +141,4 @@ class WorkerView extends Component {
   }
 }
 
-export default WorkerView;
+export default UserView;

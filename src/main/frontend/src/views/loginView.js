@@ -15,8 +15,14 @@ class loginView extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleLogin = id =>
+  handleLoginToUser = id =>
     window.location.assign("http://localhost:3000/user?id=" + id);
+
+  handleLoginToWorker = id =>
+    window.location.assign("http://localhost:3000/worker?id=" + id);
+
+  handleLoginToOwner = id =>
+    window.location.assign("http://localhost:3000/owner?id=" + id);
 
   handleSubmit(event) {
     fetch(
@@ -32,7 +38,21 @@ class loginView extends Component {
           return response.json();
         }
       })
-      .then(data => this.handleLogin(data.id))
+      .then(data => {
+        if (data.accessRights === "USER") {
+          this.handleLoginToUser(data.id);
+          return data;
+        } else if (data.accessRights === "OWNER") {
+          this.handleLoginToOwner(data.id);
+          return data;
+        } else if (
+          data.accessRights === "SHOP_ASSISTANT" ||
+          data.accessRights === "SECURITY_EMPLOYEE"
+        ) {
+          this.handleLoginToWorker(data.id);
+          return data;
+        }
+      })
       .catch(error => console.log(error));
 
     event.preventDefault();

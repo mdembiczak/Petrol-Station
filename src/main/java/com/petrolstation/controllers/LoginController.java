@@ -2,6 +2,7 @@ package com.petrolstation.controllers;
 
 import com.petrolstation.enums.persons.AccessRights;
 import com.petrolstation.models.people.Owner;
+import com.petrolstation.models.people.Person;
 import com.petrolstation.models.people.User;
 import com.petrolstation.models.people.Worker;
 import com.petrolstation.repositories.people.OwnerRepository;
@@ -25,24 +26,32 @@ public class LoginController {
     WorkerRepository workerRepository;
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
-    public User getUser(@RequestParam String email, @RequestParam String password) {
-        User user =  userRepository.findByEmailAndPasswordAndAccessRights(email, password,
+    public Person getUser(@RequestParam String email, @RequestParam String password) {
+
+        User user = userRepository.findByEmailAndPasswordAndAccessRights(email, password,
                 AccessRights.USER.toString());
-        if(user == null) {
-            return null;
+        if (user != null) {
+            return user;
         }
-        return user;
-    }
 
-    @RequestMapping(value = "worker", method = RequestMethod.GET)
-    public Worker getWorker(@RequestParam String email, @RequestParam String password) {
-        return workerRepository.findByEmailAndPasswordAndAccessRights(email, password,
-                AccessRights.SHOP_ASSISTANT.toString());
-    }
-
-    @RequestMapping(value = "owner", method = RequestMethod.GET)
-    public Owner getOwner(@RequestParam String email, @RequestParam String password) {
-        return ownerRepository.findByEmailAndPasswordAndAccessRights(email, password,
+        Owner owner = ownerRepository.findByEmailAndPasswordAndAccessRights(email, password,
                 AccessRights.OWNER.toString());
+        if (owner != null) {
+            return owner;
+        }
+
+        Worker worker = workerRepository.findByEmailAndPasswordAndAccessRights(email, password,
+                AccessRights.SHOP_ASSISTANT.toString());
+        if (worker != null) {
+            return worker;
+        }
+
+        worker = workerRepository.findByEmailAndPasswordAndAccessRights(email, password,
+                AccessRights.SECURITY_EMPLOYEE.toString());
+        if (worker != null) {
+            return worker;
+        }
+
+        return null;
     }
 }

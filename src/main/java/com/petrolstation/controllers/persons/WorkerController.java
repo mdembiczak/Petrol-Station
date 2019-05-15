@@ -16,6 +16,12 @@ public class WorkerController {
     @Autowired
     WorkerRepository workerRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
+    @RequestMapping(method = RequestMethod.GET)
+    public Worker getUserById(@RequestParam String id){
+        return workerRepository.findById(id).get();
+    }
+
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Worker> getAllWorkers(){
         return workerRepository.findAll();
