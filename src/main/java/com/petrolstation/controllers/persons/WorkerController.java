@@ -1,44 +1,35 @@
 package com.petrolstation.controllers.persons;
 
-import com.petrolstation.enums.persons.AccessRights;
 import com.petrolstation.models.people.Worker;
 import com.petrolstation.repositories.people.WorkerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/worker")
+@RequestMapping(value = "worker")
 public class WorkerController {
     @Autowired
     WorkerRepository workerRepository;
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET)
-    public Worker getUserById(@RequestParam String id){
+    public Worker getWorkerById(@RequestParam String id) {
         return workerRepository.findById(id).get();
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Worker> getAllWorkers(){
+    public List<Worker> getAllWorkers() {
         return workerRepository.findAll();
     }
 
 
     @RequestMapping(method = RequestMethod.POST)
-    public Worker addWorker(@RequestBody Worker worker){
+    public Worker addWorker(@RequestBody Worker worker) {
         worker.setWorkingHours(new HashMap<>());
         worker.setAccountNumber(worker.getAccountNumber());
         return workerRepository.save(worker);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT)
-    public void addWorkingHours(String firstName, String lastName, Date date, Integer hours){
-        Worker worker = workerRepository.findByFirstNameAndLastName(firstName, lastName);
-        worker.getWorkingHours().put(date, hours);
-        workerRepository.save(worker);
     }
 }

@@ -9,6 +9,18 @@ import java.util.List;
 
 @Document(collection = "person")
 public class User extends Person {
+
+    private int amountPoints;
+
+
+    public int getAmountPoints() {
+        return amountPoints;
+    }
+
+    public void setAmountPoints(int amountPoints) {
+        this.amountPoints = amountPoints;
+    }
+
     public List<Supply> getSupplyList() {
         return supplyList;
     }
@@ -94,6 +106,11 @@ public class User extends Person {
             return this;
         }
 
+        public Builder ammountPoints(Integer amountPoints){
+            this.amountPoints = amountPoints;
+            return this;
+        }
+
         public User build() {
             User user = new User();
             user.firstName = this.firstName;
@@ -106,6 +123,7 @@ public class User extends Person {
             user.accessRights = AccessRights.valueOf(this.accessRights);
             user.supplyList = this.supplies;
             user.reservationList = this.reservations;
+            user.amountPoints = this.amountPoints;
             return user;
         }
     }

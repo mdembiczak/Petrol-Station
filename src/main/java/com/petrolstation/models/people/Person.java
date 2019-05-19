@@ -18,7 +18,6 @@ public abstract class Person {
     String password;
     String city;
     String postalCode;
-    int amountPoints;
     AccessRights accessRights;
     String accountNumber;
     Map<Date,Integer> workingHours;
@@ -27,13 +26,6 @@ public abstract class Person {
     Map<Worker, Long> workers;
     Set<Service> services;
 
-    public int getAmountPoints() {
-        return amountPoints;
-    }
-
-    public void setAmountPoints(int amountPoints) {
-        this.amountPoints = amountPoints;
-    }
 
     public String getId() {
         return id;

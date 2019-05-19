@@ -12,21 +12,6 @@ public class Owner extends Person {
     public Owner() {
     }
 
-    public Map<Worker, Long> getWorkers() {
-        return workers;
-    }
-
-    public void setWorkers(Map<Worker, Long> workers) {
-        this.workers = workers;
-    }
-
-    public Set<Service> getServices() {
-        return services;
-    }
-
-    public void setServices(Set<Service> services) {
-        this.services = services;
-    }
 
     public Owner build() {
         Owner owner = new Owner();
@@ -37,8 +22,6 @@ public class Owner extends Person {
         owner.city = this.city;
         owner.postalCode = this.postalCode;
         owner.accessRights = this.accessRights;
-        owner.workers = this.workers;
-        owner.services = this.services;
         return owner;
     }
 
@@ -50,8 +33,6 @@ public class Owner extends Person {
         private String city;
         private String postalCode;
         private String accessRights;
-        private Map<Worker, Long> workers;
-        private Set<Service> services;
 
         public Builder firstName(String firstName) {
             this.firstName = firstName;
@@ -85,16 +66,6 @@ public class Owner extends Person {
 
         public Builder accessRight(String accessRights){
             this.accessRights = accessRights;
-            return this;
-        }
-
-        public Builder workers(Map<Worker, Long> workers){
-            this.workers = workers;
-            return this;
-        }
-
-        public Builder services(Set<Service> services){
-            this.services = services;
             return this;
         }
     }
