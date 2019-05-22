@@ -12,19 +12,23 @@ import WorkerView from './views/main/workerView';
 class App extends Component {
   render() {
     return (
-      <Router>
-          <Switch>
-            <Route exact path='/' component={GuestView} />
-            <Route exact path='/user' component={UserView} />
-            <Route exact path='/worker' component={WorkerView} />
-            <Route exact path='/owner'  component={OwnerView} />
-          </Switch>
-        <footer className="page-footer font-small gray fixed-bottom">
-            <div className="footer-copyright text-center py-3">
-                Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
+        <div>
+            <div>
+              <Router>
+                  <Switch>
+                    <Route exact path='/' component={GuestView} />
+                    <Route exact path='/user' component={UserView} />
+                    <Route exact path='/worker' component={WorkerView} />
+                    <Route exact path='/owner'  component={OwnerView} />
+                  </Switch>
+              </Router>
             </div>
-        </footer>
-      </Router>
+            <footer className="page-footer font-small gray ">
+                <div className="footer-copyright text-center py-3">
+                    Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
+                </div>
+            </footer>
+        </div>
     );
   }
 }
