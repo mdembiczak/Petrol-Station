@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 
 import querystring from "query-string";
@@ -10,7 +10,6 @@ import ContactView from "../contactView";
 import PriceListView from "../priceView";
 import LoyalityView from "../loyalityView";
 import UserDetailsView from "../logged/userDetailsView.js";
-import HistoryView from "../logged/historyView.js";
 import MainView from "../main.js";
 import SensorsView from "../worker/sensorsView";
 import InvoiceView from "../worker/invoiceView";
@@ -18,6 +17,7 @@ import AlarmsView from "../worker/alarmsView";
 import CamerasView from "../worker/camerasView";
 import ReceipeView from "../worker/receipeView";
 import ContainerView from "../owner/containerView";
+import LoyalityPrize from "../owner/loyalityPrize";
 
 class OwnerView extends Component {
   constructor() {
@@ -40,6 +40,7 @@ class OwnerView extends Component {
       })
       .catch(error => console.log(error));
   }
+
   render() {
     return (
       <Router>
@@ -102,10 +103,18 @@ class OwnerView extends Component {
                         Zbiornik
                       </Link>
                     </NavDropdown.Item>
+                    <NavDropdown.Item>
+                      <Link to={"/owner/loyality-prize"} className="nav-link">
+                        Nagrody
+                      </Link>
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </li>
                 <li>
-                  <button className="btn btn-outline-success my-2 my-sm-0" onClick={this.handleLogout}>
+                  <button
+                    className="btn btn-outline-success my-2 my-sm-0"
+                    onClick={this.handleLogout}
+                  >
                     Logout
                   </button>
                 </li>
@@ -124,8 +133,7 @@ class OwnerView extends Component {
             <Route path="/owner/recipe" component={ReceipeView} />
             <Route path="/owner/invoice" component={InvoiceView} />
             <Route path="/owner/container" component={ContainerView} />
-
-
+            <Route path="/owner/loyality-prize" component={LoyalityPrize} />
           </Switch>
         </div>
       </Router>
@@ -133,7 +141,6 @@ class OwnerView extends Component {
   }
 
   handleLogout = () => window.location.assign("http://localhost:3000/");
-
 }
 
 export default OwnerView;

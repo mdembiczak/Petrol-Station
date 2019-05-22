@@ -7,19 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class LoyalityPrizes {
 
     @Id
-    private int id;
     private String prizeName;
     private int points;
 
     public LoyalityPrizes(){}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getPrizeName() {
         return prizeName;

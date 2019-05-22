@@ -6,7 +6,6 @@ import com.petrolstation.repositories.people.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping(value = "owner")
 public class OwnerController {
@@ -18,7 +17,6 @@ public class OwnerController {
     public Owner getWorkerById(@RequestParam String id) {
         return ownerRepository.findById(id).get();
     }
-
 
 
     @RequestMapping(method = RequestMethod.POST)
