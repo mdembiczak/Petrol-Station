@@ -19,6 +19,7 @@ public class OwnerController {
     }
 
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
     public Owner addWorker(@RequestBody Owner owner) {
         owner.setAccessRights(AccessRights.OWNER);

@@ -3,95 +3,60 @@ import "../../styles/worker/sensorsView.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class SensorsView extends Component {
+  constructor() {
+    super();
+    this.state = {
+      sensors: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/fuel-container?callback=foo')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          this.setState({ sensors: data});
+        })
+        .catch(error => console.log(error));
+  }
+
 render() {
+    const { sensors } = this.state;
     return (
-      <div class="container">
-         <div class="row align-items-start">
-          <h2>Poziom paliwa:</h2>
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">Dystrybutor</th>
-                  <th scope="col">1</th>
-                  <th scope="col">2</th>
-                  <th scope="col">3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">E95</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">E98</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <th scope="row">ON</th>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-        </div>
-        <br/>
-        <div class="row align-items-center">
-             <h2>Ciśnienie i temperatura:</h2>
-                <table class="table table-striped">
+
+
+            <div className="container">
+              <br /><br /><br />
+              <div className="row align-items-start">
+
+                <h2>Zbiorniki :</h2>
+                <table className="table table-striped">
                   <thead>
                     <tr>
-                      <th scope="col">Dystrybutor</th>
-                      <th scope="col">1</th>
-                      <th scope="col">2</th>
-                      <th scope="col">3</th>
+                      <th scope="col">Zbiornik nr.</th>
+                      <th scope="col">Typ paliwa</th>
+                      <th scope="col">Litry paliwa</th>
+                      <th scope="col">Temperatura</th>
+                      <th scope="col">Ciśnienie</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">Ciśnienie na lustrem cieczy</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Temp. w zbiorniku</th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
+                  {sensors.map(function(item, key){
+                      return (
+                            <tr key={key}>
+                              <td>{item.containerNr}</td>
+                              <td>{item.fuelType}</td>
+                              <td>{item.liters}</td>
+                              <td>{item.temperature}</td>
+                              <td>{item.pressure}</td>
+                            </tr>
+                      )
+                  })}
                   </tbody>
                 </table>
-        </div>
-
-        <br/>
-                <div class="row align-items-end">
-                     <h2>LPG:</h2>
-                        <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th scope="col">LPG</th>
-                              <th scope="col">Poziom LPG</th>
-                              <th scope="col">Temperatura</th>
-                              <th scope="col">Ciśnienie par</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="row">Czujniki:</th>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                          </tbody>
-                        </table>
-                </div>
-      </div>
-    );
+              </div>
+            </div>
+    )
   }
 }
 

@@ -3,10 +3,9 @@ package com.petrolstation.controllers.services;
 import com.petrolstation.models.services.FuelContainer;
 import com.petrolstation.repositories.services.FuelContainerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -16,17 +15,18 @@ public class FuelContainerController {
     @Autowired
     FuelContainerRepository fuelContainerRepository;
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET)
-    public FuelContainer getFuelContainer(){
-        return fuelContainerRepository.findAll().get(0);
+    public List<FuelContainer> getFuelContainer(){
+        return fuelContainerRepository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public void addFuelContainer(@RequestBody FuelContainer fuelContainer){
-        fuelContainer.setId(1L);
         fuelContainerRepository.save(fuelContainer);
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.PUT)
     public void updateFuelContainer(@RequestBody FuelContainer fuelContainer){
         FuelContainer editFuelContainer = fuelContainerRepository.findAll().get(0);

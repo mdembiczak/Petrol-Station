@@ -45,7 +45,7 @@ class registerView extends Component {
     }
 
     handleChange(event) {
-       this.setState({[event.target.name] : event.target.value});
+        this.setState({[event.target.name] : event.target.value});
     }
 
     handleChangePassword(event) {
