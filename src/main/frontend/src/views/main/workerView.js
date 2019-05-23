@@ -97,7 +97,7 @@ class WorkerView extends Component {
   handleLogout = () => window.location.assign("http://localhost:3000/");
 
   renderAdditionalButton() {
-    if (this.state.mode == "SHOP_ASSISTANT") {
+    if (this.state.mode === "SHOP_ASSISTANT") {
       return (
         <NavDropdown title="Administracja" id="basic-nav-dropdown">
           <NavDropdown.Item>

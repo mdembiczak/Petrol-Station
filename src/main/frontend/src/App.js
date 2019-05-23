@@ -23,7 +23,7 @@ class App extends Component {
                   </Switch>
               </Router>
             </div>
-            <footer className="page-footer font-small gray ">
+            <footer className="page-footer font-small gray fixed-bottom">
                 <div className="footer-copyright text-center py-3">
                     Copyright © 2019 Bigos i przyjaciele Sp. z o.o.
                 </div>
