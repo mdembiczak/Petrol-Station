@@ -9,7 +9,7 @@ import java.util.Date;
 @Document(collection = "services")
 public class Service {
     @Id
-    private Long id;
+    private String id;
     private String name;
     private Double price;
     private Date date;
@@ -23,11 +23,11 @@ public class Service {
         this.date = date;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

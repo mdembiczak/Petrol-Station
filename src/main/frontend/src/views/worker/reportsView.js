@@ -78,7 +78,7 @@ class ReportsView extends Component {
               </thead>
               <tbody>
               {services.map(function(item, key) {
-                  if(item.serviceType=="Myjnia") {
+                  if(item.serviceType=="CAR_WASH") {
                       myjnia += item.price;
                   }
                   if(item.serviceType=="ON") {
@@ -86,15 +86,15 @@ class ReportsView extends Component {
                   }
                   if(item.serviceType=="LPG")
                       LPG+=item.price;
-                  if(item.serviceType=="PB95")
+                  if(item.serviceType=="E95")
                       PB95+=item.price;
-                  if(item.serviceType=="PB98")
+                  if(item.serviceType=="E98")
                       PB98+=item.price;
 
                 return (
 
                     <tr key = {key}>
-                      <th scope="row">{item.id}</th><td>{item.name}</td><td>{item.price}</td><td>{item.serviceType}</td>
+                      <th scope="row">{key+1}</th><td>{item.name}</td><td>{item.price}</td><td>{item.serviceType}</td>
                     </tr>
 
                 )
