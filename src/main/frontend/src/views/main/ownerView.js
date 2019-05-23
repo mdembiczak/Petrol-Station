@@ -16,7 +16,6 @@ import InvoiceView from "../worker/invoiceView";
 import AlarmsView from "../worker/alarmsView";
 import CamerasView from "../worker/camerasView";
 import ReceipeView from "../worker/receipeView";
-import ContainerView from "../owner/containerView";
 import LoyalityPrize from "../owner/loyalityPrize";
 
 class OwnerView extends Component {
@@ -98,11 +97,6 @@ class OwnerView extends Component {
                         Faktury
                       </Link>
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
-                      <Link to={"/owner/container"} className="nav-link">
-                        Zbiornik
-                      </Link>
-                    </NavDropdown.Item>
                     <NavDropdown.Item>
                       <Link to={"/owner/loyality-prize"} className="nav-link">
                         Nagrody
@@ -132,7 +126,6 @@ class OwnerView extends Component {
             <Route path="/owner/cameras" component={CamerasView} />
             <Route path="/owner/recipe" component={ReceipeView} />
             <Route path="/owner/invoice" component={InvoiceView} />
-            <Route path="/owner/container" component={ContainerView} />
             <Route path="/owner/loyality-prize" component={LoyalityPrize} />
           </Switch>
         </div>
