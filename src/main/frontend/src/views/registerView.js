@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
-import '../styles/registerView.css';
+import React, {Component} from 'react';
 import fetch from 'isomorphic-fetch';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 class registerView extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
-                        password:           '',
-                        confirmPassword:    '',
-                        firstName:          '',
-                        lastName:           '',
-                        email:              '',
-                        city:               '',
-                        postalcode:         ''};
+            password: '',
+            confirmPassword: '',
+            firstName: '',
+            lastName: '',
+            email: '',
+            city: '',
+            postalcode: ''
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
@@ -33,68 +35,88 @@ class registerView extends Component {
         }
 
         fetch('http://localhost:8080/users', {
-          method: 'POST',
-          headers: {
-                      'Accept': 'application/json',
-                      'Content-Type': 'application/json'
-                  },
-          body: JSON.stringify(data)
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
         }).then(obj => console.log(obj))
-        .then(response => console.log('Success:', JSON.stringify(response)))
-        .catch(error => console.error('Error:', error));
+            .then(response => console.log('Success:', JSON.stringify(response)))
+            .catch(error => console.error('Error:', error));
     }
 
     handleChange(event) {
-        this.setState({[event.target.name] : event.target.value});
+        this.setState({[event.target.name]: event.target.value});
     }
 
     handleChangePassword(event) {
-       this.setState({[event.target.name] : event.target.value});
+        this.setState({[event.target.name]: event.target.value});
     }
 
-  render() {
-  const {firstName, lastName, city, postalcode, email, password, confirmPassword} = this.state;
-    return (
-      <div className="registerView">
-        <div className="registerView-header">
-            <form onSubmit={this.handleSubmit}>
+    render() {
+        const {firstName, lastName, city, postalcode, email, password, confirmPassword} = this.state;
+        return (
+            <div className="jumbotron vertical-center">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="container ">
+                        <div className="row">
+                            <div className="col">
+                                <label>
+                                    <p>Podaj adres e-mail:</p>
+                                    <input type="email" name="email" value={email}
+                                           onChange={this.handleChange} required/></label></div>
+                            <div className="col">
+                                <label>
+                                    <p>Podaj hasło:</p>
+                                    <input type="password" name="password" value={password}
+                                           onChange={this.handleChangePassword}
+                                           required/></label></div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                            <label>
+                                <p>Podaj imię: </p>
+                                <input type="text" name="firstName" value={firstName}
+                                       onChange={this.handleChange} required/></label></div>
+                            <div className="col">
+                            <label>
+                                <p>Potwierdź hasło:</p>
+                                <input type="password" name="confirmPassword"
+                                       value={confirmPassword} onChange={this.handleChangePassword}
+                                       required/></label></div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                            <label>
+                                <p>Podaj nazwisko:</p>
+                                <input type="text" name="lastName" value={lastName}
+                                       onChange={this.handleChange} required/></label></div>
+                            <div className="col col-centered">
+                            <label>
+                                <p>Podaj miasto:</p>
+                                <input type="text" name="city" value={city}
+                                       onChange={this.handleChange} required/></label></div>
+                        </div>
+                        <div className="row">
+                            <div className="col">
+                                <label>
+                                    <p>Podaj kod pocztowy</p>
+                                    <input type="text" name="postalcode" value={postalcode}
+                                           onChange={this.handleChange} required/></label>
+                            </div>
+                            <div className="col col-centered"></div>
+                        </div>
+                        </div><br/>
+                        <input className="btn btn-primary btn-lg btn-block" type="submit"
+                               value="Wyślij"/>
 
-            <div className="leftSide">
-              <label>
-                    <p>Podaj adres e-mail:</p>
-                    <input type="email" name="email" value={email} onChange={this.handleChange} required /></label><br/>
-                <label>
-                    <p>Podaj hasło:</p>
-                    <input type="password" name="password" value={password} onChange={this.handleChangePassword} required/></label><br/>
-                <label>
-                    <p>Potwierdź hasło:</p>
-                    <input type="password"  name="confirmPassword" value={confirmPassword} onChange={this.handleChangePassword} required/></label><br/>
-              </div>
+                    </form>
 
-            <div className="rightSide">
-                <label>
-                    <p>Podaj imię: </p>
-                    <input type="text" name="firstName" value={firstName} onChange={this.handleChange} required/></label><br/>
-                <label>
-                    <p>Podaj nazwisko:</p>
-                    <input type="text" name="lastName" value={lastName} onChange={this.handleChange} required/></label><br/>
-                <label>
-                    <p>Podaj miasto:</p>
-                    <input type="text" name="city" value={city} onChange={this.handleChange} required/></label><br/>
-                <label>
-                    <p>Podaj kod pocztowy</p>
-                    <input type="text"  name="postalcode" value={postalcode} onChange={this.handleChange} required/></label><br/>
+
             </div>
-
-            <div className="submit">
-                <input type="submit" value="Wyślij" />
-            </div>
-
-            </form>
-        </div>
-      </div>
-    );
-  }
+        );
+    }
 }
 
 export default registerView;

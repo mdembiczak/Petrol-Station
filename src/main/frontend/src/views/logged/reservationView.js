@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../styles/logged/userDetailsView.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import fetch from "isomorphic-fetch";
 
 class reservationView extends Component {
@@ -78,7 +79,7 @@ class reservationView extends Component {
                   <input type="number" name="numbers" value={numbers} onChange={this.handleChange} required/>
               </td>
               <td>
-                  <input type="submit" value="Wyślij" />
+                  <input className="btn btn-primary" type="submit" value="Wyślij" />
               </td>
             </tr>
           </tbody>
