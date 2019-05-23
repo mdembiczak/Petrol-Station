@@ -84,6 +84,6 @@ public class UserController {
     @CrossOrigin(origins="http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET, value="/allUsers")
     public List<User> allUsers(){
-        return userRepository.findAll();
+        return userRepository.findAllByAccessRights("USER");
     }
 }
