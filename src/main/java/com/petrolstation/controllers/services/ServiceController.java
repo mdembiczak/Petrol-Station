@@ -1,5 +1,6 @@
 package com.petrolstation.controllers.services;
 
+import com.petrolstation.models.services.PriceList;
 import com.petrolstation.models.services.Service;
 import com.petrolstation.repositories.services.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/service")
+@RequestMapping(value = "service")
 public class ServiceController {
 
     @Autowired
@@ -23,8 +24,15 @@ public class ServiceController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addPrice(@RequestBody Service service){
+    public Service addPrice(@RequestBody Service service){
         serviceRepository.save(service);
+        return service;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deletePrice(@RequestParam String name){
+        Service service = serviceRepository.findByName(name);
+        serviceRepository.delete(service);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")

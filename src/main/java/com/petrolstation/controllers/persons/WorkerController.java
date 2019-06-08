@@ -30,8 +30,15 @@ public class WorkerController {
     @RequestMapping(method = RequestMethod.POST)
     public Worker addWorker(@RequestBody Worker worker) {
         worker.setWorkingHours(new HashMap<>());
-        worker.setAccessRights(AccessRights.SECURITY_EMPLOYEE);
         worker.setAccountNumber(worker.getAccountNumber());
         return workerRepository.save(worker);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deleteWorker(@RequestParam String email, @RequestParam String password,
+                             @RequestParam String accessRights){
+        Worker worker = workerRepository.findByEmailAndPasswordAndAccessRights(email,password,
+                accessRights);
+        workerRepository.delete(worker);
     }
 }

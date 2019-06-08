@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/fuel-container")
+@RequestMapping("fuel-container")
 public class FuelContainerController {
 
     @Autowired

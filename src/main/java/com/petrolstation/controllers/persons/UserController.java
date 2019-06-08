@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -28,6 +29,12 @@ public class UserController {
     @RequestMapping(method = RequestMethod.GET, value = "/{email}/{password}")
     public Boolean getValidation(@PathVariable String email, @PathVariable String password){
         return userRepository.findByEmailAndPassword(email, password) != null;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value ="/{email}/{password}")
+    public void deleteUser(@PathVariable String email, @PathVariable String password){
+        User user = userRepository.findByEmailAndPassword(email, password);
+        userRepository.delete(user);
     }
     
 

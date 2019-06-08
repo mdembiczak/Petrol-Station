@@ -4,16 +4,12 @@ package com.petrolstation.controllers.services;
 import com.petrolstation.models.services.PriceList;
 import com.petrolstation.repositories.services.PriceListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value= "/prices")
+@RequestMapping(value= "prices")
 public class PriceListController {
 
     @Autowired
@@ -26,8 +22,8 @@ public class PriceListController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addPrice(@RequestBody PriceList priceList){
-        priceListRepository.save(priceList);
+    public PriceList addPrice(@RequestBody PriceList priceList){
+        return priceListRepository.save(priceList);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
@@ -35,5 +31,10 @@ public class PriceListController {
         PriceList price = priceListRepository.findByFuelType(priceList.getFuelType());
         price.setPrice(priceList.getPrice());
         priceListRepository.save(price);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deletePrice(@RequestParam String fuelType){
+        priceListRepository.delete(priceListRepository.findByFuelType(fuelType));
     }
 }

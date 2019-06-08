@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/loyality-prizes")
+@RequestMapping(value = "loyality-prizes")
 public class LoyalityPrizesController {
 
     @Autowired
@@ -16,14 +16,19 @@ public class LoyalityPrizesController {
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.POST)
-    public void addPrize(@RequestBody LoyalityPrizes prize){
-        loyalityPrizesRepository.save(prize);
+    public LoyalityPrizes addPrize(@RequestBody LoyalityPrizes prize){
+        return loyalityPrizesRepository.save(prize);
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping(method = RequestMethod.GET)
     public List<LoyalityPrizes> showPrices(){
         return loyalityPrizesRepository.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deletePrize(@RequestParam String name){
+        loyalityPrizesRepository.delete(loyalityPrizesRepository.findByPrizeName(name));
     }
 
     /*

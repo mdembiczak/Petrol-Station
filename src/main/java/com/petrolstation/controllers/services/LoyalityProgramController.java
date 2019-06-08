@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value = "/loyality-program")
+@RequestMapping(value = "loyality-program")
 public class LoyalityProgramController {
 
     @Autowired
@@ -20,6 +21,13 @@ public class LoyalityProgramController {
     @RequestMapping(method = RequestMethod.GET)
     public LoyalityProgram getLoyalityProgram() {
         return loyalityProgramRepository.findAll().get(0);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "create-loyality-program")
+    public LoyalityProgram createLoyalityProgram(){
+        LoyalityProgram loyalityProgram = new LoyalityProgram();
+        loyalityProgram.setUserSet(new HashSet<>());
+        return loyalityProgramRepository.save(loyalityProgram);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
